@@ -1,0 +1,34 @@
+name: 'google_play_source_integration_tests'
+version: '0.1.0'
+profile: 'integration_tests'
+config-version: 2
+
+vars: 
+  google_play_source:
+    stats_installs_app_version: "{{ ref('stats_installs_app_version') }}"
+    stats_crashes_app_version: "{{ ref('stats_crashes_app_version') }}"
+    stats_ratings_app_version: "{{ ref('stats_ratings_app_version') }}"
+
+    stats_installs_device: "{{ ref('stats_installs_device') }}"
+    stats_ratings_device: "{{ ref('stats_ratings_device') }}"
+
+    stats_installs_os_version: "{{ ref('stats_installs_os_version') }}"
+    stats_ratings_os_version: "{{ ref('stats_ratings_os_version') }}"
+    stats_crashes_os_version: "{{ ref('stats_crashes_os_version') }}"
+
+    stats_installs_country: "{{ ref('stats_installs_country') }}"
+    stats_ratings_country: "{{ ref('stats_ratings_country') }}"
+    stats_store_performance_country: "{{ ref('stats_store_performance_country') }}"
+
+    stats_store_performance_traffic_source: "{{ ref('stats_store_performance_traffic_source') }}"
+
+    stats_installs_overview: "{{ ref('stats_installs_overview') }}"
+    stats_crashes_overview: "{{ ref('stats_crashes_overview') }}"
+    stats_ratings_overview: "{{ ref('stats_ratings_overview') }}"
+    
+    earnings: "{{ ref('earnings') }}"
+    financial_stats_subscriptions_country: "{{ ref('financial_stats_subscriptions_country') }}"
+
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['spark_utils', 'dbt_utils']
