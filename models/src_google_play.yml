@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+  - name: google_play
+    schema: "{{ var('google_play_schema', 'google_play') }}"
+    database: "{% if target.type != 'spark'%}{{ var('google_play_database', target.database) }}{% endif %}"
+    loader: Fivetran
+    loaded_at_field: _fivetran_synced
+
+    tables:
+      - name: stats_installs_app_version
+      - name: stats_crashes_app_version
+      - name: stats_ratings_app_version
+      - name: stats_installs_device
+      - name: stats_ratings_device
+      - name: stats_installs_os_version
+      - name: stats_ratings_os_version
+      - name: stats_crashes_os_version
+      - name: stats_installs_country
+      - name: stats_ratings_country
+      - name: stats_store_performance_country
+      - name: stats_store_performance_traffic_source
+      - name: stats_installs_overview
+      - name: stats_crashes_overview
+      - name: stats_ratings_overview
+      - name: earnings
+      - name: financial_stats_subscriptions_country
+
