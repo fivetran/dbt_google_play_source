@@ -22,7 +22,13 @@ fields as (
 final as (
     
     select 
-    -- rename here
+
+        date as report_date,
+        package_name,
+        daily_average_rating,
+        total_average_rating,
+        _fivetran_synced
+
     from fields
 )
 

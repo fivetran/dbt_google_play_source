@@ -1,3 +1,4 @@
+{{ config(enabled=var('google_play__using_subscriptions', True)) }}
 
 with base as (
 
@@ -22,7 +23,16 @@ fields as (
 final as (
     
     select 
-    -- rename here
+
+        date as report_date,
+        country,
+        product_id,
+        package_name,
+        active_subscriptions, -- should i rename to count_ ? 
+        cancelled_subscriptions, 
+        new_subscriptions,
+        _fivetran_synced
+
     from fields
 )
 

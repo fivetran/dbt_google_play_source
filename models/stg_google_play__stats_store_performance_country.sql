@@ -22,7 +22,15 @@ fields as (
 final as (
     
     select 
-    -- rename here
+
+        date as report_date,
+        country_region,
+        package_name,
+        store_listing_acquisitions,
+        store_listing_conversion_rate,
+        store_listing_visitors,
+        _fivetran_synced
+
     from fields
 )
 

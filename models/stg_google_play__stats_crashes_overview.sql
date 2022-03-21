@@ -21,8 +21,14 @@ fields as (
 
 final as (
     
-    select 
-    -- rename here
+    select
+
+        date as report_date,
+        package_name,
+        daily_anrs,
+        daily_crashes,
+        _fivetran_synced
+
     from fields
 )
 

@@ -22,7 +22,24 @@ fields as (
 final as (
     
     select 
-    -- rename here
+
+        date as report_date,
+        device,
+        package_name,
+        active_device_installs,
+        {# current_device_installs,
+        current_user_installs, #}
+        daily_device_installs,
+        daily_device_uninstalls,
+        daily_device_upgrades,
+        daily_user_installs,
+        daily_user_uninstalls,
+        total_user_installs,
+        install_events,
+        uninstall_events,
+        update_events,
+        _fivetran_synced
+
     from fields
 )
 
