@@ -32,7 +32,7 @@ final as (
         buyer_postal_code,
         buyer_state,
         currency_conversion_rate,
-        description,
+        description as order_id, -- this is like the unique order id, choosing to rename to reflect that... one order can have 2 records though, one for the purchase and one for the associated google fee transaction_type
         hardware as buyer_hardware,
         merchant_currency,
         offer_id,

@@ -27,7 +27,7 @@ final as (
         app_version_code,
         package_name,
         active_device_installs,
-        -- these are always null
+        -- these are always null? will remove
         {# current_device_installs,
         current_user_installs, #}
         daily_device_installs,

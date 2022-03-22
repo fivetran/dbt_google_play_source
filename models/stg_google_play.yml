@@ -1,0 +1,136 @@
+version: 2
+
+models:
+
+  - name: stg_google_play__stats_installs_app_version
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - package_name
+            - report_date
+            - app_version_code
+
+  - name: stg_google_play__stats_crashes_app_version
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - package_name
+            - report_date
+            - app_version_code
+
+  - name: stg_google_play__stats_ratings_app_version
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - package_name
+            - report_date
+            - app_version_code
+
+  - name: stg_google_play__stats_installs_device
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - package_name
+            - report_date
+            - device
+
+  - name: stg_google_play__stats_ratings_device
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - package_name
+            - report_date
+            - device
+
+  - name: stg_google_play__stats_installs_os_version
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - package_name
+            - report_date
+            - android_os_version
+
+  - name: stg_google_play__stats_ratings_os_version
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - package_name
+            - report_date
+            - android_os_version
+
+  - name: stg_google_play__stats_crashes_os_version
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - package_name
+            - report_date
+            - android_os_version
+
+  - name: stg_google_play__stats_installs_country
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - package_name
+            - report_date
+            - country
+
+  - name: stg_google_play__stats_ratings_country
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - package_name
+            - report_date
+            - country
+
+  - name: stg_google_play__stats_store_performance_country
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - package_name
+            - report_date
+            - country_region
+
+  - name: stg_google_play__stats_store_performance_traffic_source
+    columns:
+      - name: traffic_source_unique_key
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_google_play__stats_installs_overview
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - package_name
+            - report_date
+
+  - name: stg_google_play__stats_crashes_overview
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - package_name
+            - report_date
+
+  - name: stg_google_play__stats_ratings_overview
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - package_name
+            - report_date
+
+  - name: stg_google_play__earnings
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - order_id
+            - transaction_type
+            - tax_type
+
+  - name: stg_google_play__financial_stats_subscriptions_country
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - package_name
+            - report_date
+            - country
+            - product_id

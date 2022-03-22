@@ -27,11 +27,13 @@ final as (
         package_name,
         traffic_source,
         search_term,
+        utm_campaign,
+        utm_source,
         store_listing_acquisitions,
         store_listing_conversion_rate,
         store_listing_visitors,
-        utm_campaign,
-        utm_source,
+        -- make a surrogate key as the PK involves quite a few columns
+        {{ dbt_utils.surrogate_key(['date', 'package_name', 'traffic_source', 'search_term', 'utm_campaign', 'utm_source']) }} as traffic_source_unique_key,
         _fivetran_synced
 
     from fields
