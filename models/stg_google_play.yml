@@ -125,6 +125,7 @@ models:
             - order_id
             - transaction_type
             - tax_type
+            - amount_buyer_currency # this is because withholding taxes (https://support.google.com/googleplay/android-developer/answer/9384608?hl=en) can be split up into multiple records
 
   - name: stg_google_play__financial_stats_subscriptions_country
     tests:

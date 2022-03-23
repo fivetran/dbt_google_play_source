@@ -41,6 +41,8 @@ final as (
         _fivetran_synced
 
     from fields
+
+    where device is not null -- TODO !!!!!!!! figure this out/remove
 )
 
 select * from final

@@ -41,6 +41,8 @@ final as (
     _fivetran_synced
 
     from fields
+
+    where android_os_version is not null -- TODO !!!!!!!! figure this out/remove
 )
 
 select * from final

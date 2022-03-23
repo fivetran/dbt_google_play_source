@@ -34,7 +34,7 @@ vars:
 
 models:
   google_play_source:
-    +schema: stg_google_play
+    # +schema: stg_google_play # TODO: uncomment before releasing
     +materialized: table
     tmp:
       +materialized: view
