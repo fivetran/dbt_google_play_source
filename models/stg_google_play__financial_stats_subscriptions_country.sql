@@ -28,7 +28,7 @@ final as (
         country,
         product_id,
         package_name,
-        active_subscriptions, -- should i rename to count_ ? 
+        active_subscriptions as count_active_subscriptions,
         cancelled_subscriptions, 
         new_subscriptions,
         _fivetran_synced

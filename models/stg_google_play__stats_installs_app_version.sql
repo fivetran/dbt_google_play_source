@@ -35,7 +35,7 @@ final as (
         daily_device_upgrades,
         daily_user_installs,
         daily_user_uninstalls,
-        total_user_installs, -- eh? rename to total_unique_user_installs?
+        total_user_installs as total_unique_user_installs,
         install_events,
         uninstall_events,
         update_events,

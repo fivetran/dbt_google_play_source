@@ -27,7 +27,7 @@ final as (
         android_os_version,
         package_name,
         daily_average_rating,
-        total_average_rating,
+        total_average_rating as rolling_total_average_rating,
         _fivetran_synced
 
     from fields

@@ -7,22 +7,47 @@ sources:
     loader: Fivetran
     loaded_at_field: _fivetran_synced
 
+    freshness:
+      warn_after: {count: 48, period: hour}
+      error_after: {count: 72, period: hour}
+
     tables:
       - name: stats_installs_app_version
+        identifier: "{{ var('stats_installs_app_version_identifier', 'stats_installs_app_version') }}"
       - name: stats_crashes_app_version
+        identifier: "{{ var('stats_crashes_app_version_identifier', 'stats_crashes_app_version') }}"
       - name: stats_ratings_app_version
+        identifier: "{{ var('stats_ratings_app_version_identifier', 'stats_ratings_app_version') }}"
       - name: stats_installs_device
+        identifier: "{{ var('stats_installs_device_identifier', 'stats_installs_device') }}"
       - name: stats_ratings_device
+        identifier: "{{ var('stats_ratings_device_identifier', 'stats_ratings_device') }}"
       - name: stats_installs_os_version
+        identifier: "{{ var('stats_installs_os_version_identifier', 'stats_installs_os_version') }}"
       - name: stats_ratings_os_version
+        identifier: "{{ var('stats_ratings_os_version_identifier', 'stats_ratings_os_version') }}"
       - name: stats_crashes_os_version
+        identifier: "{{ var('stats_crashes_os_version_identifier', 'stats_crashes_os_version') }}"
       - name: stats_installs_country
+        identifier: "{{ var('stats_installs_country_identifier', 'stats_installs_country') }}"
       - name: stats_ratings_country
+        identifier: "{{ var('stats_ratings_country_identifier', 'stats_ratings_country') }}"
       - name: stats_store_performance_country
+        identifier: "{{ var('stats_store_performance_country_identifier', 'stats_store_performance_country') }}"
       - name: stats_store_performance_traffic_source
+        identifier: "{{ var('stats_store_performance_traffic_source_identifier', 'stats_store_performance_traffic_source') }}"
       - name: stats_installs_overview
+        identifier: "{{ var('stats_installs_overview_identifier', 'stats_installs_overview') }}"
       - name: stats_crashes_overview
+        identifier: "{{ var('stats_crashes_overview_identifier', 'stats_crashes_overview') }}"
       - name: stats_ratings_overview
+        identifier: "{{ var('stats_ratings_overview_identifier', 'stats_ratings_overview') }}"
       - name: earnings
-      - name: financial_stats_subscriptions_country
+        identifier: "{{ var('earnings_identifier', 'earnings') }}"
+        meta:
+          is_enabled: "{{ var('google_play__using_earnings', true) }}"
 
+      - name: financial_stats_subscriptions_country
+        identifier: "{{ var('financial_stats_subscriptions_country_identifier', 'financial_stats_subscriptions_country') }}"
+        meta:
+          is_enabled: "{{ var('google_play__using_subscriptions', true) }}"
