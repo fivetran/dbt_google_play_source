@@ -22,7 +22,7 @@ fields as (
 final as (
     
     select 
-        date as report_date,
+        date as date_day,
         country,
         package_name,
         -- always null?

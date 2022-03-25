@@ -23,7 +23,7 @@ final as (
     
     select 
 
-        date as report_date,
+        date as date_day,
         country_region,
         package_name,
         store_listing_acquisitions,

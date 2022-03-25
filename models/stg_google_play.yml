@@ -7,7 +7,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - package_name
-            - report_date
+            - date_day
             - app_version_code
 
   - name: stg_google_play__stats_crashes_app_version
@@ -15,7 +15,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - package_name
-            - report_date
+            - date_day
             - app_version_code
 
   - name: stg_google_play__stats_ratings_app_version
@@ -23,7 +23,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - package_name
-            - report_date
+            - date_day
             - app_version_code
 
   - name: stg_google_play__stats_installs_device
@@ -31,7 +31,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - package_name
-            - report_date
+            - date_day
             - device
 
   - name: stg_google_play__stats_ratings_device
@@ -39,7 +39,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - package_name
-            - report_date
+            - date_day
             - device
 
   - name: stg_google_play__stats_installs_os_version
@@ -47,7 +47,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - package_name
-            - report_date
+            - date_day
             - android_os_version
 
   - name: stg_google_play__stats_ratings_os_version
@@ -55,7 +55,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - package_name
-            - report_date
+            - date_day
             - android_os_version
 
   - name: stg_google_play__stats_crashes_os_version
@@ -63,7 +63,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - package_name
-            - report_date
+            - date_day
             - android_os_version
 
   - name: stg_google_play__stats_installs_country
@@ -71,7 +71,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - package_name
-            - report_date
+            - date_day
             - country
 
   - name: stg_google_play__stats_ratings_country
@@ -79,7 +79,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - package_name
-            - report_date
+            - date_day
             - country
 
   - name: stg_google_play__stats_store_performance_country
@@ -87,7 +87,7 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - package_name
-            - report_date
+            - date_day
             - country_region
 
   - name: stg_google_play__stats_store_performance_traffic_source
@@ -102,21 +102,21 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - package_name
-            - report_date
+            - date_day
 
   - name: stg_google_play__stats_crashes_overview
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - package_name
-            - report_date
+            - date_day
 
   - name: stg_google_play__stats_ratings_overview
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - package_name
-            - report_date
+            - date_day
 
   - name: stg_google_play__earnings
     tests:
@@ -132,6 +132,6 @@ models:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
             - package_name
-            - report_date
+            - date_day
             - country
             - product_id

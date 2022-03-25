@@ -23,7 +23,7 @@ final as (
     
     select 
 
-    date as report_date,
+    date as date_day,
     package_name,
     android_os_version,
     active_device_installs,

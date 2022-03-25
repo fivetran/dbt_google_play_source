@@ -23,7 +23,7 @@ final as (
     
     select 
 
-        date as report_date,
+        date as date_day,
         package_name,
         daily_average_rating,
         total_average_rating as rolling_total_average_rating,
