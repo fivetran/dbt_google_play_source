@@ -26,12 +26,14 @@ final as (
         date as date_day,
         country_region,
         package_name,
-        store_listing_acquisitions,
-        store_listing_conversion_rate,
-        store_listing_visitors,
-        _fivetran_synced
+        -- just to batch NULL countries into one pile
+        sum(store_listing_acquisitions) as store_listing_acquisitions,
+        avg(store_listing_conversion_rate) as store_listing_conversion_rate,
+        sum(store_listing_visitors) as store_listing_visitors
 
     from fields
+
+    group by 1,2,3
 )
 
 select * from final

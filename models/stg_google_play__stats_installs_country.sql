@@ -28,21 +28,20 @@ final as (
         -- always null?
         {# current_device_installs,
         current_user_installs, #}
-        active_device_installs,
-        daily_device_installs,
-        daily_device_uninstalls,
-        daily_device_upgrades,
-        daily_user_installs,
-        daily_user_uninstalls,
-        total_user_installs as total_unique_user_installs,
-        install_events,
-        uninstall_events,
-        update_events,
-        _fivetran_synced
+        sum(active_device_installs) as active_device_installs,
+        sum(daily_device_installs) as daily_device_installs,
+        sum(daily_device_uninstalls) as daily_device_uninstalls,
+        sum(daily_device_upgrades) as daily_device_upgrades,
+        sum(daily_user_installs) as daily_user_installs,
+        sum(daily_user_uninstalls) as daily_user_uninstalls,
+        sum(total_user_installs) as total_unique_user_installs,
+        sum(install_events) as install_events,
+        sum(uninstall_events) as uninstall_events,
+        sum(update_events) as update_events
 
     from fields
 
-    where country is not null -- TODO !!!!!!!! figure this out/remove
+    group by 1,2,3 -- for grouping NULL devices together into one pile
 )
 
 select * from final
