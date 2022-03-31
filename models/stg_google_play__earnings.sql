@@ -42,8 +42,12 @@ final as (
         refund_type,
         sku_id,
         tax_type,
-        transaction_date,
-        transaction_time,
+        cast(transaction_date as date) as transaction_date,
+
+        -- ok but this is actually a string...unsure how to convert while maintaining the timezone
+        cast(cast(transaction_date as date)|| ' ' || lpad(transaction_time, 15, '0') as {{ dbt_utils.type_timestamp() }}) as transaction_pt_timestamp,
+        right(transaction_time, 3) as transaction_timezone,
+
         transaction_type,
         _fivetran_synced
 
