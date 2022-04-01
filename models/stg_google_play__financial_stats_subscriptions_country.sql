@@ -28,12 +28,14 @@ final as (
         country,
         product_id,
         package_name,
-        active_subscriptions as count_active_subscriptions,
-        cancelled_subscriptions, 
-        new_subscriptions,
-        _fivetran_synced
+        -- batch nulls together
+        sum(active_subscriptions) as count_active_subscriptions,
+        sum(cancelled_subscriptions) as daily_cancelled_subscriptions,
+        sum(new_subscriptions) as daily_new_subscriptions
 
     from fields
+    
+    group by 1,2,3,4
 )
 
 select * from final
