@@ -22,14 +22,12 @@ fields as (
 final as (
     
     select 
-
         date as date_day,
         android_os_version,
         package_name,
         daily_anrs,
         daily_crashes,
         _fivetran_synced
-
     from fields
 )
 

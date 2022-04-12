@@ -22,7 +22,6 @@ fields as (
 final as (
     
     select 
-
         date as date_day,
         package_name,
         active_device_installs,
@@ -38,7 +37,6 @@ final as (
         uninstall_events,
         update_events,
         _fivetran_synced
-        
     from fields
 )
 

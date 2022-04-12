@@ -22,7 +22,6 @@ fields as (
 final as (
     
     select 
-
         date as date_day,
         country_region,
         package_name,
@@ -30,9 +29,7 @@ final as (
         sum(store_listing_acquisitions) as store_listing_acquisitions,
         avg(store_listing_conversion_rate) as store_listing_conversion_rate,
         sum(store_listing_visitors) as store_listing_visitors
-
     from fields
-
     group by 1,2,3
 )
 

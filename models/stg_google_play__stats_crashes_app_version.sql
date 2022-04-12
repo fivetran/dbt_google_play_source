@@ -22,14 +22,12 @@ fields as (
 final as (
     
     select 
-
         date as date_day,
         app_version_code,
         package_name,
         daily_anrs,
         daily_crashes,
         _fivetran_synced
-
     from fields
 )
 

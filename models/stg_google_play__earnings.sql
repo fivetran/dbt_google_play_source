@@ -1,4 +1,4 @@
-{{ config(enabled=var('google_play__using_earnings', True)) }}
+{{ config(enabled=var('google_play__using_earnings', False)) }}
 
 with base as (
 
@@ -36,7 +36,7 @@ final as (
         hardware as buyer_hardware,
         merchant_currency,
         offer_id,
-        product_id,
+        product_id as package_name, -- renaming as sometimes product_id can refer to sku_id in other tables
         product_title,
         product_type,
         refund_type,
@@ -50,7 +50,6 @@ final as (
 
         transaction_type,
         _fivetran_synced
-
     from fields
 )
 

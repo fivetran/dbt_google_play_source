@@ -22,14 +22,10 @@ fields as (
 final as (
     
     select 
-
         date as date_day,
         app_version_code,
         package_name,
         active_device_installs,
-        -- these are always null? will remove
-        {# current_device_installs,
-        current_user_installs, #}
         daily_device_installs,
         daily_device_uninstalls,
         daily_device_upgrades,
@@ -40,7 +36,6 @@ final as (
         uninstall_events,
         update_events,
         _fivetran_synced
-
     from fields
 )
 

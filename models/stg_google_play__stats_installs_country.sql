@@ -25,9 +25,6 @@ final as (
         date as date_day,
         country,
         package_name,
-        -- always null?
-        {# current_device_installs,
-        current_user_installs, #}
         sum(active_device_installs) as active_device_installs,
         sum(daily_device_installs) as daily_device_installs,
         sum(daily_device_uninstalls) as daily_device_uninstalls,
@@ -38,9 +35,7 @@ final as (
         sum(install_events) as install_events,
         sum(uninstall_events) as uninstall_events,
         sum(update_events) as update_events
-
     from fields
-
     group by 1,2,3 -- for grouping NULL devices together into one pile
 )
 

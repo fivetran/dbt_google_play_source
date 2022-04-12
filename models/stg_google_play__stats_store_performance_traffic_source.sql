@@ -22,7 +22,6 @@ fields as (
 final as (
     
     select 
-
         date as date_day,
         package_name,
         traffic_source,
@@ -35,7 +34,6 @@ final as (
         -- make a surrogate key as the PK involves quite a few columns
         {{ dbt_utils.surrogate_key(['date', 'package_name', 'traffic_source', 'search_term', 'utm_campaign', 'utm_source']) }} as traffic_source_unique_key,
         _fivetran_synced
-
     from fields
 )
 

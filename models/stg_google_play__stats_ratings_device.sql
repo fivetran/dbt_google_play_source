@@ -22,16 +22,13 @@ fields as (
 final as (
     
     select 
-
         date as date_day,
         device,
         package_name,
         -- an average of an average will only be taken for NULL devices :-) as they are being grouped together
         avg( cast( nullif(daily_average_rating, 'NA') as {{ dbt_utils.type_float() }} )) as daily_average_rating,
         avg(total_average_rating) as rolling_total_average_rating
-
     from fields
-
     group by 1,2,3 -- for grouping NULL devices together in one pile
 )
 

@@ -1,4 +1,4 @@
-{{ config(enabled=var('google_play__using_subscriptions', True)) }}
+{{ config(enabled=var('google_play__using_subscriptions', False)) }}
 
 with base as (
 
@@ -32,9 +32,7 @@ final as (
         sum(active_subscriptions) as count_active_subscriptions,
         sum(cancelled_subscriptions) as daily_cancelled_subscriptions,
         sum(new_subscriptions) as daily_new_subscriptions
-
     from fields
-    
     group by 1,2,3,4
 )
 
