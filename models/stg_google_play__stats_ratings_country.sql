@@ -25,11 +25,11 @@ final as (
         date as date_day,
         country,
         package_name,
-        -- an average of an average will only be taken for NULL devices :-) as they are being grouped together
+        -- an average of an average will only be taken for NULL countries :-) as they are being grouped together
         avg( cast( nullif(daily_average_rating, 'NA') as {{ dbt_utils.type_float() }} )) as daily_average_rating,
         avg(total_average_rating) as rolling_total_average_rating
     from fields
-    group by 1,2,3
+    group by 1,2,3 -- for grouping NULL countries together into one pile
 )
 
 select * from final

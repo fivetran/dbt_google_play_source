@@ -25,10 +25,10 @@ final as (
         date as date_day,
         app_version_code,
         package_name,
-        daily_anrs,
-        daily_crashes,
-        _fivetran_synced
+        sum(daily_anrs) as daily_anrs,
+        sum(daily_crashes) as daily_crashes
     from fields
+    group by 1,2,3 -- for grouping NULL app version codes together into one pile (this might not ever happen but just to be safe...)
 )
 
 select * from final

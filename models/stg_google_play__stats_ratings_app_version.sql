@@ -25,10 +25,11 @@ final as (
         date as date_day,
         app_version_code,
         package_name,
-        daily_average_rating,
-        total_average_rating as rolling_total_average_rating,
-        _fivetran_synced
+        -- an average of an average will only be taken for NULL app versions :-) as they are being grouped together
+        avg( cast( nullif(daily_average_rating, 'NA') as {{ dbt_utils.type_float() }} )) as daily_average_rating,
+        avg(total_average_rating) as rolling_total_average_rating
     from fields
+    group by 1,2,3 -- for grouping NULL app version codes together into one pile
 )
 
 select * from final

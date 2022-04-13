@@ -25,10 +25,10 @@ final as (
         date as date_day,
         android_os_version,
         package_name,
-        daily_anrs,
-        daily_crashes,
-        _fivetran_synced
+        sum(daily_anrs) as daily_anrs,
+        sum(daily_crashes) as daily_crashes
     from fields
+    group by 1,2,3 -- group null os versions together
 )
 
 select * from final
