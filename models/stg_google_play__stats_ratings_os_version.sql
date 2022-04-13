@@ -25,11 +25,11 @@ final as (
         date as date_day,
         android_os_version,
         package_name,
-        daily_average_rating,
-        total_average_rating as rolling_total_average_rating,
-        _fivetran_synced
+        -- an average of an average will only be taken for NULL os_versions :-) as they are being grouped together
+        avg( cast( nullif(daily_average_rating, 'NA') as {{ dbt_utils.type_float() }} )) as daily_average_rating,
+        avg(total_average_rating) as rolling_total_average_rating
     from fields
-    where android_os_version is not null -- TODO !!!!!!!! figure this out/remove
+    group by 1,2,3 -- group null os versions together 
 )
 
 select * from final
