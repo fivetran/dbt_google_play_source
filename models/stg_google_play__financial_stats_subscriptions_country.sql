@@ -29,9 +29,9 @@ final as (
         product_id,
         package_name,
         -- batch nulls together
-        sum(active_subscriptions) as count_active_subscriptions,
-        sum(cancelled_subscriptions) as daily_cancelled_subscriptions,
-        sum(new_subscriptions) as daily_new_subscriptions
+        sum(active_subscriptions) as total_active_subscriptions,
+        sum(cancelled_subscriptions) as cancelled_subscriptions,
+        sum(new_subscriptions) as new_subscriptions
     from fields
     group by 1,2,3,4
 )

@@ -24,7 +24,7 @@ final as (
     select 
         date as date_day,
         package_name,
-        cast( nullif(daily_average_rating, 'NA') as {{ dbt_utils.type_float() }} ) as daily_average_rating,
+        cast( nullif(daily_average_rating, 'NA') as {{ dbt_utils.type_float() }} ) as average_rating,
         total_average_rating as rolling_total_average_rating,
         _fivetran_synced
     from fields
