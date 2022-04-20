@@ -24,8 +24,8 @@ final as (
     select
         date as date_day,
         package_name,
-        daily_anrs,
-        daily_crashes,
+        daily_anrs as anrs,
+        daily_crashes as crashes,
         _fivetran_synced
     from fields
 )

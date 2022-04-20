@@ -25,8 +25,8 @@ final as (
         date as date_day,
         android_os_version,
         package_name,
-        sum(daily_anrs) as daily_anrs,
-        sum(daily_crashes) as daily_crashes
+        sum(daily_anrs) as anrs,
+        sum(daily_crashes) as crashes
     from fields
     group by 1,2,3 -- group null os versions together
 )
