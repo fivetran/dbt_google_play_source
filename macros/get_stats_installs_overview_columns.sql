@@ -1,4 +1,4 @@
-23:45:21  {% macro get_stats_installs_overview_columns() %}
+{% macro get_stats_installs_overview_columns() %}
 
 {% set columns = [
     {"name": "_file", "datatype": dbt_utils.type_string()},

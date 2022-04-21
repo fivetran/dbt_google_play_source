@@ -1,4 +1,4 @@
-23:45:37  {% macro get_financial_stats_subscriptions_country_columns() %}
+{% macro get_financial_stats_subscriptions_country_columns() %}
 
 {% set columns = [
     {"name": "_file", "datatype": dbt_utils.type_string()},
