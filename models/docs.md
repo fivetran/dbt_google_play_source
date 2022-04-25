@@ -23,7 +23,7 @@ The package name of the app owning the report data.
 {% enddocs %}
 
 {% docs daily_anrs %}
-Application not responding (ANR) reports collected from Android devices whose users have opted in to automatically share usage and diagnostics data.
+Daily application not responding (ANR) reports collected from Android devices whose users have opted in to automatically share usage and diagnostics data.
 {% enddocs %}
 
 {% docs daily_crashes %}
@@ -55,11 +55,11 @@ The number of devices from which users upgraded your app on a given day.
 {% enddocs %}
 
 {% docs daily_user_installs %}
-The number of users who installed your app and did not have it installed on any other devices at the time.
+The number of users who installed your app and did not have it installed on any other devices at the time on a given day.
 {% enddocs %}
 
 {% docs daily_user_uninstalls %}
-The number of users who uninstalled your app from all of their devices.
+The number of users who uninstalled your app from all of their devices on this day.
 {% enddocs %}
 
 {% docs install_events %}
@@ -95,7 +95,7 @@ The number of users that visited your store listing who did not have your app in
 {% enddocs %}
 
 {% docs store_listing_conversion_rate %}
-The percentage of store listing visitors who installed your app 
+The percentage of store listing visitors who installed your app on a given day.
 
 Note: Does not include visits or installs from users who already have your app installed on another device
 {% enddocs %}
@@ -109,7 +109,7 @@ Two-letter abbreviation of the country or region where the user’s Google accou
 {% enddocs %}
 
 {% docs app_version_code %}
-Integer value of the version of the app being reported on. 
+Integer value of the version of the app being reported on.
 {% enddocs %}
 
 {% docs device %}
@@ -118,4 +118,8 @@ Type of device model. May be NULL if users do not consent to being tracked.
 
 {% docs android_os_version %}
 Operation System of the android being used. May be NULL if users do not consent to being tracked.
+{% enddocs %}
+
+{% docs sku_id %}
+Developer-specified unique ID assigned to the ordered product. Subscription order IDs include the renewal cycle number at the end.
 {% enddocs %}

@@ -301,7 +301,7 @@ sources:
 
       - name: stats_ratings_country
         identifier: "{{ var('stats_ratings_country_identifier', 'stats_ratings_country') }}"
-        description: Each line is a daily snapshot of the monthly ratings report by app and user OS version.
+        description: Each line is a daily snapshot of the monthly ratings report by app and country.
         columns:
           - name: _file
             description: '{{ doc("_file") }}'
@@ -494,7 +494,7 @@ sources:
           - name: base_plan_id
             description: Base plan id of the subscription product.
           - name: buyer_country
-            description: Two-letter abbreviation of the country in which the buyer resides.
+            description: '{{ doc("country") }}'
           - name: buyer_currency
             description: Currency the order was converted from.
           - name: buyer_postal_code
@@ -520,13 +520,13 @@ sources:
           - name: refund_type
             description: Refunds where the buyer was reimbursed their full spend will be marked as 'Full'. Refunds for part of a user’s payment amount will be marked as 'Partial'. 
           - name: sku_id
-            description: Developer-specified unique ID of the product.
+            description: '{{ doc("sku_id") }}'
           - name: tax_type
             description: Kind of tax for tax lines; null for non-tax lines.
           - name: transaction_date
-            description: Date of this order based on the PDT time zone (in 'MMM DD, YYYY' format).
+            description: Date of this order based on the PDT time zone (in 'MMM DD, YYYY' string format).
           - name: transaction_time
-            description: Time of this order based on the PDT time zone (in 'hh:mm:ss PM PDT' format). Note that single-digit hours are not prepended with a 0.
+            description: Time of this order based on the PDT time zone (in 'hh:mm:ss PM PDT' string format). Note that single-digit hours are not prepended with a 0.
           - name: transaction_type
             description: Type of transaction - Charge, Google fee, Tax, Charge refund, Google fee refund, Charge rebill, Tax rebill, Google fee rebill, etc.
 
@@ -549,7 +549,7 @@ sources:
           - name: cancelled_subscriptions
             description: The daily count of cancelled subscriptions.
           - name: country
-            description: Two-letter abbreviation of the country in which the subscription was purchased.
+            description: '{{ doc("country") }}'
           - name: date
             description: '{{ doc("date") }}'
           - name: new_subscriptions
@@ -557,4 +557,4 @@ sources:
           - name: package_name
             description: '{{ doc("package_name") }}'
           - name: product_id
-            description: Developer-specified unique ID assigned to this order. Subscription order IDs include the renewal cycle number at the end.
+            description: '{{ doc("sku_id") }}'
