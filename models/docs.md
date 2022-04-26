@@ -100,6 +100,18 @@ The percentage of store listing visitors who installed your app on a given day.
 Note: Does not include visits or installs from users who already have your app installed on another device
 {% enddocs %}
 
+{% docs total_active_subscriptions %}
+The rolling count of active subscriptions of this type in this country.
+{% enddocs %}
+
+{% docs cancelled_subscriptions %}
+The daily count of cancelled subscriptions.
+{% enddocs %}
+
+{% docs new_subscriptions %}
+The daily count of newly purchased subscriptions.
+{% enddocs %}
+
 {% docs country %}
 Two-letter abbreviation of the country where the user’s Google account is registered.
 {% enddocs %}

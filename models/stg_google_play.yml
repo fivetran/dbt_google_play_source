@@ -476,15 +476,15 @@ models:
             - product_id
     columns:
       - name: total_active_subscriptions
-        description: The rolling count of active subscriptions of this type in this country.
+        description: '{{ doc("total_active_subscriptions") }}'
       - name: cancelled_subscriptions
-        description: The daily count of cancelled subscriptions.
+        description: '{{ doc("cancelled_subscriptions") }}'
       - name: country
         description: '{{ doc("country") }}'
       - name: date_day
         description: '{{ doc("date") }}'
       - name: new_subscriptions
-        description: The daily count of newly purchased subscriptions.
+        description: '{{ doc("new_subscriptions") }}'
       - name: package_name
         description: '{{ doc("package_name") }}'
       - name: product_id
