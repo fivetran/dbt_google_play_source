@@ -43,18 +43,17 @@ final as (
         sku_id,
         tax_type,
 
-        -- ok but this is actually a string...unsure how to convert while maintaining the timezone
+        -- dates are stored like 'Apr 1, 2022'
         {% if target.type == 'bigquery' %}
         parse_date("%b %e, %Y", transaction_date) as transaction_date,
-        parse_date("%b %e, %Y", transaction_date) 
+        parse_timestamp("%F %T %p", parse_date("%b %e, %Y", transaction_date) || ' ' || left(lpad(transaction_time, 15, '0'), 11))
         {% else %}
         cast(transaction_date as date) as transaction_date,
-        cast(cast(transaction_date as date)
+        cast(cast(transaction_date as date) || ' ' || lpad(transaction_time, 15, '0') as {{ dbt_utils.type_timestamp() }})
         {%- endif -%} 
-            || ' ' || lpad(transaction_time, 15, '0') as {{ dbt_utils.type_timestamp() }}) as transaction_pt_timestamp, -- this will be a `timestamp without time zone` data type but it is in PT
-        {# cast(cast(transaction_date as date)|| ' ' || lpad(transaction_time, 15, '0') as {{ dbt_utils.type_timestamp() }}) as transaction_pt_timestamp, #}
-        right(transaction_time, 3) as transaction_timezone,
+            as transaction_pt_timestamp, -- this will be a `timestamp without time zone` data type but it is in PT
 
+        right(transaction_time, 3) as transaction_timezone, -- either PST or PDT
         transaction_type,
         _fivetran_synced
     from fields
