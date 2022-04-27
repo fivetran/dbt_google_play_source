@@ -52,6 +52,10 @@ final as (
         {% elif target.type == 'snowflake' %}
         date(transaction_date, 'mon dd, yyyy') as transaction_date,
         to_timestamp_ntz(date(transaction_date, 'mon dd, yyyy') || ' ' || left(lpad(transaction_time, 15, '0'), 11), 'yyyy-mm-dd hh12:mi:ss am') 
+
+        {% elif target.type == 'spark' %}
+        to_date(transaction_date, 'MMM d, y') as transaction_date,
+        to_timestamp(to_date(transaction_date, 'MMM d, y') || ' ' || left(lpad(transaction_time, 15, '0'), 11), 'yyyy-MM-dd h:m:s a') 
         
         {% else %}
         cast(transaction_date as date) as transaction_date,
