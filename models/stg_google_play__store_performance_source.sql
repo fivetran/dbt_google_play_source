@@ -2,7 +2,7 @@
 with base as (
 
     select * 
-    from {{ ref('stg_google_play__stats_store_performance_traffic_source_tmp') }}
+    from {{ ref('stg_google_play__store_performance_source_tmp') }}
 
 ),
 
@@ -11,7 +11,7 @@ fields as (
     select
         {{
             fivetran_utils.fill_staging_columns(
-                source_columns=adapter.get_columns_in_relation(ref('stg_google_play__stats_store_performance_traffic_source_tmp')),
+                source_columns=adapter.get_columns_in_relation(ref('stg_google_play__store_performance_source_tmp')),
                 staging_columns=get_stats_store_performance_traffic_source_columns()
             )
         }}

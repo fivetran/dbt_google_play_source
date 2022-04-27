@@ -44,14 +44,17 @@ final as (
         tax_type,
 
         -- dates are stored like 'Apr 1, 2022'
+        -- times are like '1:23:45 AM PDT'
         {% if target.type == 'bigquery' %}
         parse_date("%b %e, %Y", transaction_date) as transaction_date,
         parse_timestamp("%F %T %p", parse_date("%b %e, %Y", transaction_date) || ' ' || left(lpad(transaction_time, 15, '0'), 11))
+
         {% else %}
         cast(transaction_date as date) as transaction_date,
         cast(cast(transaction_date as date) || ' ' || lpad(transaction_time, 15, '0') as {{ dbt_utils.type_timestamp() }})
+        
         {%- endif -%} 
-            as transaction_pt_timestamp, -- this will be a `timestamp without time zone` data type but it is in PT
+            as transaction_pt_timestamp, -- the data type will be timestamp in UTC/no timezone but all timestamps in google play are PDT or PST
 
         right(transaction_time, 3) as transaction_timezone, -- either PST or PDT
         transaction_type,

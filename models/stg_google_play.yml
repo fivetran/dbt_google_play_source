@@ -278,7 +278,7 @@ models:
       - name: rolling_total_average_rating
         description: '{{ doc("total_average_rating") }}'
 
-  - name: stg_google_play__stats_store_performance_country
+  - name: stg_google_play__store_performance_country
     description: >
       Each line is a daily snapshot of the monthly store performance report by app and country.
       Records with `NULL` countries are aggregated together into daily batches.
@@ -302,7 +302,7 @@ models:
       - name: store_listing_visitors
         description: '{{ doc("store_listing_visitors") }}'
 
-  - name: stg_google_play__stats_store_performance_traffic_source
+  - name: stg_google_play__store_performance_source
     description: Each line is a daily snapshot of the monthly store performance report by app and type of traffic source.
     columns:
       - name: traffic_source_unique_key
@@ -463,7 +463,7 @@ models:
       - name: transaction_timezone
         description: Timezone in which the order was placed (PDT or PST).
         
-  - name: stg_google_play__financial_stats_subscriptions_country
+  - name: stg_google_play__subscriptions_country
     description: >
       Each line is a daily snapshot of the monthly subscriptions report by individual country, app, and subscription product.
       Records with `NULL` countries are aggregated together into daily batches.
