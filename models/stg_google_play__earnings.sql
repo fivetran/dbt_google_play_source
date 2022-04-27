@@ -49,6 +49,10 @@ final as (
         parse_date("%b %e, %Y", transaction_date) as transaction_date,
         parse_timestamp("%F %T %p", parse_date("%b %e, %Y", transaction_date) || ' ' || left(lpad(transaction_time, 15, '0'), 11))
 
+        {% elif target.type == 'snowflake' %}
+        date(transaction_date, 'mon dd, yyyy') as transaction_date,
+        to_timestamp_ntz(date(transaction_date, 'mon dd, yyyy') || ' ' || left(lpad(transaction_time, 15, '0'), 11), 'yyyy-mm-dd hh12:mi:ss am') 
+        
         {% else %}
         cast(transaction_date as date) as transaction_date,
         cast(cast(transaction_date as date) || ' ' || lpad(transaction_time, 15, '0') as {{ dbt_utils.type_timestamp() }})
