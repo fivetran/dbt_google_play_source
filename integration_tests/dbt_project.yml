@@ -32,3 +32,12 @@ vars:
 dispatch:
   - macro_namespace: dbt_utils
     search_order: ['spark_utils', 'dbt_utils']
+
+seeds:
+  google_play_source_integration_tests:
+    stats_installs_overview:
+      +column_types:
+        active_device_installs: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
+    stats_ratings_app_version:
+      +column_types:
+        app_version_code: "{{ 'int64' if target.type == 'bigquery' else 'bigint' }}"
