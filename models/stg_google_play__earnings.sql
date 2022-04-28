@@ -65,7 +65,7 @@ final as (
             as transaction_pt_timestamp, -- the data type will be timestamp in UTC/no timezone but all timestamps in google play are PDT or PST
 
         right(transaction_time, 3) as transaction_timezone, -- either PST or PDT
-        transaction_type,
+        coalesce(transaction_type, 'Other') as transaction_type, --put NULL transaction types into the 'other' pile
         _fivetran_synced
     from fields
 )

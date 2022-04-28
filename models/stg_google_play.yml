@@ -455,7 +455,7 @@ models:
       - name: transaction_date
         description: Date of this order based on the PDT time zone (in 'MMM DD, YYYY' format).
       - name: transaction_type
-        description: Type of transaction - Charge, Google fee, Tax, Charge refund, Google fee refund, Charge rebill, Tax rebill, Google fee rebill, etc.
+        description: Type of transaction - Charge, Google fee, Tax, Charge refund, Google fee refund, Charge rebill, Tax rebill, Google fee rebill, etc. Nulls are coalesced into 'Other'
       - name: transaction_pt_timestamp
         description: >
           Timestamp (in Pacific Time) of  when the order was placed. This is cast as a `dbt_utils.type_timestamp()` which compiles to a timestamp WITHOUT a timezone. 
