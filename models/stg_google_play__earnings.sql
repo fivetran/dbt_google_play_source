@@ -43,7 +43,7 @@ final as (
         sku_id,
         tax_type,
 
-        -- dates are stored like 'Apr 1, 2022'
+        -- dates are stored like 'Apr 1, 2022' -> gotta convert these to YYYY-MM-DD
         -- times are like '1:23:45 AM PDT'
         {% if target.type == 'bigquery' %}
         parse_date("%b %e, %Y", transaction_date) as transaction_date,
@@ -56,7 +56,7 @@ final as (
         {% elif target.type == 'spark' %}
         to_date(transaction_date, 'MMM d, y') as transaction_date,
         to_timestamp(to_date(transaction_date, 'MMM d, y') || ' ' || left(lpad(transaction_time, 15, '0'), 11), 'yyyy-MM-dd h:m:s a') 
-        
+
         {% else %}
         cast(transaction_date as date) as transaction_date,
         cast(cast(transaction_date as date) || ' ' || lpad(transaction_time, 15, '0') as {{ dbt_utils.type_timestamp() }})
