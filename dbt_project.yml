@@ -18,16 +18,16 @@ vars:
 
     stats_installs_country: "{{ source('google_play', 'stats_installs_country') }}"
     stats_ratings_country: "{{ source('google_play', 'stats_ratings_country') }}"
-    stats_store_performance_country: "{{ source('google_play', 'store_performance_country') }}"
+    stats_store_performance_country: "{{ source('google_play', 'stats_store_performance_country') }}"
 
-    stats_store_performance_traffic_source: "{{ source('google_play', 'store_performance_traffic_source') }}"
+    stats_store_performance_traffic_source: "{{ source('google_play', 'stats_store_performance_traffic_source') }}"
 
     stats_installs_overview: "{{ source('google_play', 'stats_installs_overview') }}"
     stats_crashes_overview: "{{ source('google_play', 'stats_crashes_overview') }}"
     stats_ratings_overview: "{{ source('google_play', 'stats_ratings_overview') }}"
     
     earnings: "{{ source('google_play', 'earnings') }}"
-    financial_stats_subscriptions_country: "{{ source('google_play', 'subscriptions_country') }}"
+    financial_stats_subscriptions_country: "{{ source('google_play', 'financial_stats_subscriptions_country') }}"
 
 models:
   google_play_source:
