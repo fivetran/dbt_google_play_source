@@ -1,4 +1,4 @@
-23:45:00  {% macro get_stats_crashes_os_version_columns() %}
+{% macro get_stats_crashes_os_version_columns() %}
 
 {% set columns = [
     {"name": "_file", "datatype": dbt_utils.type_string()},

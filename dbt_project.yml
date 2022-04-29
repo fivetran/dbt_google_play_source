@@ -28,9 +28,6 @@ vars:
     
     earnings: "{{ source('google_play', 'earnings') }}"
     financial_stats_subscriptions_country: "{{ source('google_play', 'financial_stats_subscriptions_country') }}"
-    
-  google_play__using_earnings: true
-  google_play__using_subscriptions: true
 
 models:
   google_play_source:

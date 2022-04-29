@@ -30,7 +30,6 @@ final as (
         daily_device_upgrades as device_upgrades,
         daily_user_installs as user_installs,
         daily_user_uninstalls as user_uninstalls,
-        total_user_installs as total_unique_user_installs,
         install_events,
         uninstall_events,
         update_events,

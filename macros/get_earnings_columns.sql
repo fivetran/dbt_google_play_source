@@ -1,4 +1,4 @@
-23:45:33  {% macro get_earnings_columns() %}
+{% macro get_earnings_columns() %}
 
 {% set columns = [
     {"name": "_file", "datatype": dbt_utils.type_string()},

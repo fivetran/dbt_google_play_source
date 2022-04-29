@@ -1,4 +1,4 @@
-23:45:12  {% macro get_stats_store_performance_country_columns() %}
+{% macro get_stats_store_performance_country_columns() %}
 
 {% set columns = [
     {"name": "_file", "datatype": dbt_utils.type_string()},

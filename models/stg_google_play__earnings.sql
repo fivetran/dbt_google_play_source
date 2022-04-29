@@ -42,13 +42,30 @@ final as (
         refund_type,
         sku_id,
         tax_type,
+
+        -- dates are stored like 'Apr 1, 2022' -> gotta convert these to YYYY-MM-DD
+        -- times are like '1:23:45 AM PDT'
+        {% if target.type == 'bigquery' %}
+        parse_date("%b %e, %Y", transaction_date) as transaction_date,
+        parse_timestamp("%F %T %p", parse_date("%b %e, %Y", transaction_date) || ' ' || left(lpad(transaction_time, 15, '0'), 11))
+
+        {% elif target.type == 'snowflake' %}
+        date(transaction_date, 'mon dd, yyyy') as transaction_date,
+        to_timestamp_ntz(date(transaction_date, 'mon dd, yyyy') || ' ' || left(lpad(transaction_time, 15, '0'), 11), 'yyyy-mm-dd hh12:mi:ss am') 
+
+        {% elif target.type == 'spark' %}
+        to_date(transaction_date, 'MMM d, y') as transaction_date,
+        to_timestamp(to_date(transaction_date, 'MMM d, y') || ' ' || left(lpad(transaction_time, 15, '0'), 11), 'yyyy-MM-dd h:m:s a') 
+
+        {% else %}
         cast(transaction_date as date) as transaction_date,
+        cast(cast(transaction_date as date) || ' ' || lpad(transaction_time, 15, '0') as {{ dbt_utils.type_timestamp() }})
+        
+        {%- endif -%} 
+            as transaction_pt_timestamp, -- the data type will be timestamp in UTC/no timezone but all timestamps in google play are PDT or PST
 
-        -- ok but this is actually a string...unsure how to convert while maintaining the timezone
-        cast(cast(transaction_date as date)|| ' ' || lpad(transaction_time, 15, '0') as {{ dbt_utils.type_timestamp() }}) as transaction_pt_timestamp,
-        right(transaction_time, 3) as transaction_timezone,
-
-        transaction_type,
+        right(transaction_time, 3) as transaction_timezone, -- either PST or PDT
+        coalesce(transaction_type, 'Other') as transaction_type, --put NULL transaction types into the 'other' pile
         _fivetran_synced
     from fields
 )

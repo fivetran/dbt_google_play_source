@@ -31,7 +31,6 @@ final as (
         sum(daily_device_upgrades) as device_upgrades,
         sum(daily_user_installs) as user_installs,
         sum(daily_user_uninstalls) as user_uninstalls,
-        sum(total_user_installs) as total_unique_user_installs,
         sum(install_events) as install_events,
         sum(uninstall_events) as uninstall_events,
         sum(update_events) as update_events
