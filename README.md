@@ -13,7 +13,7 @@
         <img src="https://img.shields.io/badge/Contributions-welcome-blueviolet" /></a>
 </p>
 
-# Google Play Source dbt Package ([Docs](https://fivetran.github.io/dbt_google_play_source/))
+# Google Play Source dbt Package ([Docs](https://fivetran.github.io/dbt_google_play_source/)) 
 # 📣 What does this dbt package do?
 - Cleans, tests, and prepares your Google Play data from [Fivetran's connector](https://fivetran.com/docs/applications/google-play) for analysis.
 - Generates a comprehensive data dictionary of your Google Play data via the [dbt docs site](https://fivetran.github.io/dbt_google_play_source/)
