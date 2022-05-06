@@ -477,7 +477,7 @@ sources:
           Each line in the report represents a type of transaction, like when you charge a customer money or pay Google a fee, along with the original and converted amounts.
           Does not include chargebacks. No transactions made in the European Economic Area will not be Google fees. 
         meta:
-          is_enabled: "{{ var('google_play__using_earnings', true) }}"
+          is_enabled: "{{ var('google_play__using_earnings', false) }}"
         columns:
           - name: _file
             description: '{{ doc("_file") }}'
@@ -534,7 +534,7 @@ sources:
         identifier: "{{ var('financial_stats_subscriptions_country_identifier', 'financial_stats_subscriptions_country') }}"
         description: Each line is a daily snapshot of the monthly subscriptions report by individual country, app, and subscription product.
         meta:
-          is_enabled: "{{ var('google_play__using_subscriptions', true) }}"
+          is_enabled: "{{ var('google_play__using_subscriptions', false) }}"
         columns:
           - name: _file
             description: '{{ doc("_file") }}'
