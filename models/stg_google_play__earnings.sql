@@ -32,11 +32,11 @@ final as (
         buyer_postal_code,
         buyer_state,
         currency_conversion_rate,
-        description as order_id, -- this is like the unique order id, choosing to rename to reflect that... one order can have 2 records though, one for the purchase and one for the associated google fee transaction_type
+        description as order_id,
         hardware as buyer_hardware,
         merchant_currency,
         offer_id,
-        product_id as package_name, -- renaming as sometimes product_id can refer to sku_id in other tables
+        product_id as package_name,
         product_title,
         product_type,
         refund_type,
@@ -65,7 +65,7 @@ final as (
             as transaction_pt_timestamp, -- the data type will be timestamp in UTC/no timezone but all timestamps in google play are PDT or PST
 
         right(transaction_time, 3) as transaction_timezone, -- either PST or PDT
-        coalesce(transaction_type, 'Other') as transaction_type, --put NULL transaction types into the 'other' pile
+        coalesce(transaction_type, 'Other') as transaction_type,
         _fivetran_synced
     from fields
 )

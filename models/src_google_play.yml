@@ -504,7 +504,7 @@ sources:
           - name: currency_conversion_rate
             description: Exchange rate used when converting buyer amounts to payout amounts in merchant currency.
           - name: description
-            description: Unique ID assigned to this order. Subscription order IDs include the renewal cycle number at the end.
+            description: Unique ID assigned to this order. Subscription order IDs include the renewal cycle number at the end. Renamed to `order_id` in the staging layer.
           - name: hardware
             description: Android device model used to make the purchase. For subscription orders, this refers to the model used for the original purchase.
           - name: merchant_currency
@@ -512,7 +512,7 @@ sources:
           - name: offer_id
             description: ID of the offer used to purchase the product.
           - name: product_id
-            description: Package name of the app where the product was sold.
+            description: Package name of the app where the product was sold. Renamed to `package_name`.
           - name: product_title
             description: Developer-specified name of the product. Shown in the buyer's locale.
           - name: product_type

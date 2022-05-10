@@ -433,7 +433,7 @@ models:
       - name: currency_conversion_rate
         description: Exchange rate used when converting buyer amounts to payout amounts in merchant currency.
       - name: order_id
-        description: Unique ID assigned to this order. Subscription order IDs include the renewal cycle number at the end. Renamed from `description`.
+        description: Unique ID assigned to this order. Subscription order IDs include the renewal cycle number at the end. Renamed from `description`. One order will have a record for every kind of transaction associated with it.
       - name: buyer_hardware
         description: Android device model used to make the purchase. For subscription orders, this refers to the model used for the original purchase.
       - name: merchant_currency

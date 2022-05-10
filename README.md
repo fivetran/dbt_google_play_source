@@ -40,6 +40,8 @@ packages:
   - package: fivetran/google_play_source
     version: [">=0.1.0", "<0.2.0"]
 ```
+
+**On your first run,** please be sure to do a `dbt build` to ensure that all dependencies (namely a `seed` file) for this package are properly loaded. 
 ## Step 3: Configure Your Variables
 ### Database, Schema, and Table Name Variables
 By default, this package will run using your target database and the `google_play` schema. If this is not where your Google Play data is (perhaps your Google Play schema is `google_play_fivetran`), add the following configuration to your root `dbt_project.yml` file:
