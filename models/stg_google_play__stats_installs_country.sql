@@ -35,7 +35,7 @@ final as (
         sum(uninstall_events) as uninstall_events,
         sum(update_events) as update_events
     from fields
-    group by 1,2,3 -- for grouping NULL devices together into one pile
+    group by 1,2,3
 )
 
 select * from final

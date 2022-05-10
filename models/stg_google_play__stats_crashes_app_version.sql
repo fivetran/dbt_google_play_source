@@ -28,7 +28,7 @@ final as (
         sum(daily_anrs) as anrs,
         sum(daily_crashes) as crashes
     from fields
-    group by 1,2,3 -- for grouping NULL app version codes together into one pile (this might not ever happen but just to be safe...)
+    group by 1,2,3
 )
 
 select * from final

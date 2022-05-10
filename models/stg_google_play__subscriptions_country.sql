@@ -28,7 +28,6 @@ final as (
         country,
         product_id,
         package_name,
-        -- batch nulls together
         sum(active_subscriptions) as total_active_subscriptions,
         sum(cancelled_subscriptions) as cancelled_subscriptions,
         sum(new_subscriptions) as new_subscriptions

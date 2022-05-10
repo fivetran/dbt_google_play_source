@@ -28,7 +28,7 @@ final as (
         sum(daily_anrs) as anrs,
         sum(daily_crashes) as crashes
     from fields
-    group by 1,2,3 -- group null os versions together
+    group by 1,2,3
 )
 
 select * from final

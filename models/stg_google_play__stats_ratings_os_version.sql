@@ -25,11 +25,10 @@ final as (
         date as date_day,
         android_os_version,
         package_name,
-        -- an average of an average will only be taken for NULL os_versions :-) as they are being grouped together
-        avg( cast( nullif(daily_average_rating, 'NA') as {{ dbt_utils.type_float() }} )) as average_rating,
-        avg(total_average_rating) as rolling_total_average_rating
+        case when android_os_version is null then null else cast( nullif(daily_average_rating, 'NA') as {{ dbt_utils.type_float() }} ) end as average_rating,
+        case when android_os_version is null then null else total_average_rating end as rolling_total_average_rating
     from fields
-    group by 1,2,3 -- group null os versions together 
+    {{ dbt_utils.group_by(n=5) }}
 )
 
 select * from final

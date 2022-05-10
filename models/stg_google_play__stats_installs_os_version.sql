@@ -35,7 +35,7 @@ final as (
         sum(uninstall_events) as uninstall_events,
         sum(update_events) as update_events
     from fields
-    group by 1,2,3 -- group null os versions together
+    group by 1,2,3
 )
 
 select * from final

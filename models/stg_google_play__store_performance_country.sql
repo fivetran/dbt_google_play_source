@@ -25,7 +25,6 @@ final as (
         date as date_day,
         country_region,
         package_name,
-        -- just to batch NULL countries into one pile
         sum(store_listing_acquisitions) as store_listing_acquisitions,
         avg(store_listing_conversion_rate) as store_listing_conversion_rate,
         sum(store_listing_visitors) as store_listing_visitors
