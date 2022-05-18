@@ -375,8 +375,7 @@ sources:
           - name: store_listing_visitors
             description: '{{ doc("store_listing_visitors") }}'
           - name: traffic_source
-            description: >
-              How the user got to your store listing: Google Play search, Third-party referral, Google Play explore, or Other.
+            description: '{{ doc("traffic_source") }}'
           - name: utm_campaign
             description: >
               The value of the utm_campaign URL parameter in deep links to your store listing. Only available when the traffic source is a third-party referral.
