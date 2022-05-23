@@ -4,7 +4,6 @@ with base as (
 
     select * 
     from {{ ref('stg_google_play__earnings_tmp') }}
-
 ),
 
 fields as (
@@ -23,7 +22,6 @@ fields as (
 final as (
     
     select 
-
         amount_buyer_currency_ as amount_buyer_currency,
         amount_merchant_currency_ as amount_merchant_currency,
         base_plan_id,
@@ -70,4 +68,5 @@ final as (
     from fields
 )
 
-select * from final
+select * 
+from final

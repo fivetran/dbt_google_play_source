@@ -71,7 +71,7 @@ If an individual source table has a different name than the package expects, add
     
 ```yml
 vars:
-    google_play_<default_source_table_name>_identifier: your_table_name 
+    <default_source_table_name>_identifier: your_table_name 
 ```
     
 </details>
@@ -99,6 +99,7 @@ packages:
 ## Package Maintenance
 The Fivetran team maintaining this package _only_ maintains the latest version of the package. We highly recommend that you stay consistent with the [latest version](https://hub.getdbt.com/fivetran/google_play_source/latest/) of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_google_play_source/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
 
+## Opinionated Decisions
 ## Contributions
 A small team of analytics engineers at Fivetran develops these dbt packages. However, the packages are made better by community contributions! 
 
