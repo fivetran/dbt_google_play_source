@@ -57,7 +57,7 @@ vars:
 <details><summary>Expand to view configurations</summary>
     
 ### Change the build schema
-By default, this package builds the google_play staging models within a schema titled (`<target_schema>` + `_stg_google_play`) in your destination. If this is not where you would like your google_play staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
+By default, this package builds the google_play staging models within a schema titled (`<target_schema>` + `_google_play_source`) in your destination. If this is not where you would like your google_play staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
 
 ```yml
 models:
