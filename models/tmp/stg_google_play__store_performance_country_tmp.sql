@@ -1,1 +1,2 @@
-select * from {{ var('stats_store_performance_country') }}
+select * 
+from {{ var('stats_store_performance_country') }}

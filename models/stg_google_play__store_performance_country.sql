@@ -3,7 +3,6 @@ with base as (
 
     select * 
     from {{ ref('stg_google_play__store_performance_country_tmp') }}
-
 ),
 
 fields as (
@@ -32,4 +31,5 @@ final as (
     group by 1,2,3
 )
 
-select * from final
+select * 
+from final

@@ -3,7 +3,6 @@ with base as (
 
     select * 
     from {{ ref('stg_google_play__stats_installs_app_version_tmp') }}
-    
 ),
 
 fields as (
@@ -38,4 +37,5 @@ final as (
     group by 1,2,3
 )
 
-select * from final
+select * 
+from final

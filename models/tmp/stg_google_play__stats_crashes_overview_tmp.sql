@@ -1,1 +1,2 @@
-select * from {{ var('stats_crashes_overview') }}
+select * 
+from {{ var('stats_crashes_overview') }}

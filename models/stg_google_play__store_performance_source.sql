@@ -3,7 +3,6 @@ with base as (
 
     select * 
     from {{ ref('stg_google_play__store_performance_source_tmp') }}
-
 ),
 
 fields as (
@@ -37,4 +36,5 @@ final as (
     from fields
 )
 
-select * from final
+select * 
+from final

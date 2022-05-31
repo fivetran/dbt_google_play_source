@@ -116,9 +116,9 @@ The daily count of newly purchased subscriptions.
 How the user got to your store listing: Google Play search, Third-party referral, Google Play explore, or Other.
 {% enddocs %}
 
-{% docs country %}
-Two-letter abbreviation of the country where the user’s Google account is registered.
-{% enddocs %}
+{% docs country %} 
+Two-letter abbreviation of the country where the user’s Google account is registered. 
+{% enddocs %} 
 
 {% docs country_region %}
 Two-letter abbreviation of the country or region where the user’s Google account is registered.

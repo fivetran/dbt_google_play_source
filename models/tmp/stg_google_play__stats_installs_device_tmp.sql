@@ -1,1 +1,2 @@
-select * from {{ var('stats_installs_device') }}
+select * 
+from {{ var('stats_installs_device') }}

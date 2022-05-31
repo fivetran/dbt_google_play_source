@@ -3,7 +3,6 @@ with base as (
 
     select * 
     from {{ ref('stg_google_play__stats_crashes_overview_tmp') }}
-
 ),
 
 fields as (
@@ -30,4 +29,5 @@ final as (
     from fields
 )
 
-select * from final
+select * 
+from final

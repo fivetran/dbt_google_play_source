@@ -57,7 +57,7 @@ vars:
 <details><summary>Expand to view configurations</summary>
     
 ### Change the build schema
-By default, this package builds the google_play staging models within a schema titled (`<target_schema>` + `_stg_google_play`) in your destination. If this is not where you would like your google_play staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
+By default, this package builds the google_play staging models within a schema titled (`<target_schema>` + `_google_play_source`) in your destination. If this is not where you would like your google_play staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
 
 ```yml
 models:
@@ -71,7 +71,7 @@ If an individual source table has a different name than the package expects, add
     
 ```yml
 vars:
-    google_play_<default_source_table_name>_identifier: your_table_name 
+    <default_source_table_name>_identifier: your_table_name 
 ```
     
 </details>
@@ -98,6 +98,9 @@ packages:
 # 🙌 How is this package maintained and can I contribute?
 ## Package Maintenance
 The Fivetran team maintaining this package _only_ maintains the latest version of the package. We highly recommend that you stay consistent with the [latest version](https://hub.getdbt.com/fivetran/google_play_source/latest/) of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_google_play_source/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
+
+## Opinionated Decisions
+In creating this package, which is meant for a wide range of use cases, we had to take opinionated stances on a few different questions we came across during development. We've consolidated significant choices we made in the [DECISIONLOG.md](https://github.com/fivetran/dbt_google_play_source/blob/main/DECISIONLOG.md), and will continue to update as the package evolves. We are always open to and encourage feedback on these choices, and the package in general.
 
 ## Contributions
 A small team of analytics engineers at Fivetran develops these dbt packages. However, the packages are made better by community contributions! 

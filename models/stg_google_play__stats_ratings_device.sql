@@ -3,7 +3,6 @@ with base as (
 
     select * 
     from {{ ref('stg_google_play__stats_ratings_device_tmp') }}
-
 ),
 
 fields as (
@@ -31,4 +30,5 @@ final as (
     {{ dbt_utils.group_by(n=5) }}
 )
 
-select * from final
+select * 
+from final
