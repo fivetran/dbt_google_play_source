@@ -32,6 +32,9 @@ jobs:
             dbt seed --target postgres --full-refresh
             dbt run --target postgres --full-refresh
             dbt test --target postgres
+            dbt run --vars '{google_play__using_earnings: true}' --target postgres --full-refresh
+            dbt run --vars '{google_play__using_earnings: true, google_play__using_subscriptions: true}' --target postgres --full-refresh
+            dbt test --target postgres
       - run:
           name: "Run Tests - Spark"
           command: |
@@ -41,6 +44,9 @@ jobs:
             dbt deps
             dbt seed --target spark --full-refresh
             dbt run --target spark --full-refresh
+            dbt test --target spark
+            dbt run --vars '{google_play__using_earnings: true}' --target spark --full-refresh
+            dbt run --vars '{google_play__using_earnings: true, google_play__using_subscriptions: true}' --target spark --full-refresh
             dbt test --target spark
       - run:
           name: "Run Tests - Redshift"
@@ -52,6 +58,9 @@ jobs:
             dbt seed --target redshift --full-refresh
             dbt run --target redshift --full-refresh
             dbt test --target redshift
+            dbt run --vars '{google_play__using_earnings: true}' --target redshift --full-refresh
+            dbt run --vars '{google_play__using_earnings: true, google_play__using_subscriptions: true}' --target redshift --full-refresh
+            dbt test --target redshift
       - run:
           name: "Run Tests - Snowflake"
           command: |
@@ -61,6 +70,9 @@ jobs:
             dbt deps
             dbt seed --target snowflake --full-refresh
             dbt run --target snowflake --full-refresh
+            dbt test --target snowflake
+            dbt run --vars '{google_play__using_earnings: true}' --target snowflake --full-refresh
+            dbt run --vars '{google_play__using_earnings: true, google_play__using_subscriptions: true}' --target snowflake --full-refresh
             dbt test --target snowflake
       - run:
           name: "Run Tests - BigQuery"
@@ -75,4 +87,6 @@ jobs:
             dbt seed --target bigquery --full-refresh
             dbt run --target bigquery --full-refresh
             dbt test --target bigquery
-            
+            dbt run --vars '{google_play__using_earnings: true}' --target bigquery --full-refresh
+            dbt run --vars '{google_play__using_earnings: true, google_play__using_subscriptions: true}' --target bigquery --full-refresh
+            dbt test --target bigquery
