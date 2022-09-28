@@ -24,7 +24,7 @@ final as (
         date as date_day,
         country,
         package_name,
-        case when country is null then null else cast( nullif(daily_average_rating, 'NA') as {{ dbt_utils.type_float() }} ) end as average_rating,
+        case when country is null then null else cast( nullif(cast(daily_average_rating as {{ dbt_utils.type_string() }}), 'NA') as {{ dbt_utils.type_float() }} ) end as average_rating ,
         case when country is null then null else total_average_rating end as rolling_total_average_rating
     from fields
     {{ dbt_utils.group_by(n=5) }}
