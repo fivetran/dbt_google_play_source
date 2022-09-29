@@ -1,11 +1,9 @@
 # dbt_google_play_source v0.1.1
-
 ## Fixes
-[PR #8](https://github.com/fivetran/dbt_google_play_source/pull/8) incorporates the following change:
-- The LinkedIn Ads schema and database variables were incorrectly documented within the README. The README has been updated to reflect the correct variable names.
+- Fix casting issue with daily_average_rating ([#8](https://github.com/fivetran/dbt_google_play_source/pull/8))
 
 ## Contributors
-- [@johnf](https://github.com/johnf) ([#7](https://github.com/fivetran/dbt_google_play_source/pull/7))
+- [@johnf](https://github.com/johnf) ([#8](https://github.com/fivetran/dbt_google_play_source/pull/8))
 
 
 # dbt_google_play_source v0.1.0
