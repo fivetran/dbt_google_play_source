@@ -1,9 +1,9 @@
 name: 'google_play_source_integration_tests'
-version: '0.1.0'
+version: '0.1.1'
 profile: 'integration_tests'
 config-version: 2
 
-vars: 
+vars:
   google_play_schema: google_play_source_integration_tests
   google_play_source:
     stats_installs_app_version_identifier: "stats_installs_app_version"
