@@ -51,13 +51,13 @@ final as (
         date(transaction_date, 'mon dd, yyyy') as transaction_date,
         to_timestamp_ntz(date(transaction_date, 'mon dd, yyyy') || ' ' || left(lpad(transaction_time, 15, '0'), 11), 'yyyy-mm-dd hh12:mi:ss am') 
 
-        {% elif target.type == 'spark' %}
+        {% elif target.type == '!!!!!!! REPLACE 'spark' WITH 'spark','databricks' OR EQUIV !!!!!!!' %}
         to_date(transaction_date, 'MMM d, y') as transaction_date,
         to_timestamp(to_date(transaction_date, 'MMM d, y') || ' ' || left(lpad(transaction_time, 15, '0'), 11), 'yyyy-MM-dd h:m:s a') 
 
         {% else %}
         cast(transaction_date as date) as transaction_date,
-        cast(cast(transaction_date as date) || ' ' || lpad(transaction_time, 15, '0') as {{ dbt_utils.type_timestamp() }})
+        cast(cast(transaction_date as date) || ' ' || lpad(transaction_time, 15, '0') as {{ dbt.type_timestamp() }})
         
         {%- endif -%} 
             as transaction_pt_timestamp, -- the data type will be timestamp in UTC/no timezone but all timestamps in google play are PDT or PST

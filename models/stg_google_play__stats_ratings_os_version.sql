@@ -24,7 +24,7 @@ final as (
         date as date_day,
         android_os_version,
         package_name,
-        case when android_os_version is null then null else cast( nullif(cast(daily_average_rating as {{ dbt_utils.type_string() }}), 'NA') as {{ dbt_utils.type_float() }} ) end as average_rating,
+        case when android_os_version is null then null else cast( nullif(cast(daily_average_rating as {{ dbt.type_string() }}), 'NA') as {{ dbt.type_float() }} ) end as average_rating,
         case when android_os_version is null then null else total_average_rating end as rolling_total_average_rating
     from fields
     {{ dbt_utils.group_by(n=5) }}
