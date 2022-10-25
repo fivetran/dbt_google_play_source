@@ -51,7 +51,7 @@ final as (
         date(transaction_date, 'mon dd, yyyy') as transaction_date,
         to_timestamp_ntz(date(transaction_date, 'mon dd, yyyy') || ' ' || left(lpad(transaction_time, 15, '0'), 11), 'yyyy-mm-dd hh12:mi:ss am') 
 
-        {% elif target.type == '!!!!!!! REPLACE 'spark' WITH 'spark','databricks' OR EQUIV !!!!!!!' %}
+        {% elif target.type in ('spark','databricks') %}
         to_date(transaction_date, 'MMM d, y') as transaction_date,
         to_timestamp(to_date(transaction_date, 'MMM d, y') || ' ' || left(lpad(transaction_time, 15, '0'), 11), 'yyyy-MM-dd h:m:s a') 
 
