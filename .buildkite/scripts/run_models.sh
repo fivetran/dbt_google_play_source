@@ -17,7 +17,5 @@ dbt deps
 dbt seed --target "$db" --full-refresh
 dbt run --target "$db" --full-refresh
 dbt test --target "$db"
-dbt run --vars --vars '{google_play__using_earnings: true}' --target "$db" --full-refresh
-dbt test --target "$db"
 dbt run --vars --vars '{google_play__using_earnings: true, google_play__using_subscriptions: true}' --target "$db" --full-refresh
 dbt test --target "$db"
