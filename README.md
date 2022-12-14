@@ -34,7 +34,7 @@ Include the following google_play_source package version in your `packages.yml` 
 ```yaml
 packages:
   - package: fivetran/google_play_source
-    version: [">=0.1.0", "<0.2.0"]
+    version: [">=0.2.0", "<0.3.0"]
 ```
 ## Step 3: Define database and schema variables
 By default, this package runs using your destination and the `google_play` schema. If this is not where your google_play data is (for example, if your google_play schema is named `google_play_fivetran`), add the following configuration to your root `dbt_project.yml` file:
