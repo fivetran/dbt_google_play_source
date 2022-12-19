@@ -457,7 +457,7 @@ models:
         description: Type of transaction - Charge, Google fee, Tax, Charge refund, Google fee refund, Charge rebill, Tax rebill, Google fee rebill, etc. Nulls are coalesced into 'Other'
       - name: transaction_pt_timestamp
         description: >
-          Timestamp (in Pacific Time) of  when the order was placed. This is cast as a `dbt_utils.type_timestamp()` which compiles to a timestamp WITHOUT a timezone. 
+          Timestamp (in Pacific Time) of  when the order was placed. This is cast as a `dbt.type_timestamp()` which compiles to a timestamp WITHOUT a timezone. 
           However, all times reported in Google Play are in Pacific Time.
       - name: transaction_timezone
         description: Timezone in which the order was placed (PDT or PST).
