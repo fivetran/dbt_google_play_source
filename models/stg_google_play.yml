@@ -488,3 +488,26 @@ models:
         description: '{{ doc("package_name") }}'
       - name: product_id
         description: '{{ doc("sku_id") }}'
+
+seeds:
+  - name: google_play__country_codes
+    description: ISO-3166 country mapping table
+    columns:
+      - name: country_name
+        description: The ISO-3166 English country name sent by Google.
+      - name: alternative_country_name
+        description: Due to differences in the official ISO country names used by Google and Apple's naming convention, we've added an alternative territory name that will allow us to join downstream reports.
+      - name: country_code_numeric
+        description: The 3 digit ISO-3166 country code. ([Original Source](https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv))
+      - name: country_code_alpha_2
+        description: The 2 character ISO-3166 country code. ([Original Source](https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv))
+      - name: country_code_alpha_3
+        description: The 3 character ISO-3166 country code. ([Original Source](https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv))
+      - name: region
+        description: The UN Statistics region name assignment. ([Original Source](https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv))
+      - name: region_code
+        description: The UN Statistics region numerical code assignment. ([Original Source](https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv))
+      - name: sub_region
+        description: The UN Statistics sub-region name. ([Original Source](https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv))
+      - name: sub_region_code
+        description: The UN Statistics sub-region numerical code. ([Original Source](https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes/blob/master/all/all.csv))

@@ -36,7 +36,7 @@ Brunei Darussalam,Brunei,96,BN,BRN,Asia,142,South-eastern Asia,035
 Bulgaria,,100,BG,BGR,Europe,150,Eastern Europe,151
 Burkina Faso,,854,BF,BFA,Africa,002,Sub-Saharan Africa,202
 Burundi,,108,BI,BDI,Africa,002,Sub-Saharan Africa,202
-Cabo Verde,,132,CV,CPV,Africa,002,Sub-Saharan Africa,202
+Cabo Verde,Cape Verde,132,CV,CPV,Africa,002,Sub-Saharan Africa,202
 Cambodia,,116,KH,KHM,Asia,142,South-eastern Asia,035
 Cameroon,,120,CM,CMR,Africa,002,Sub-Saharan Africa,202
 Canada,,124,CA,CAN,Americas,019,Northern America,021
@@ -49,11 +49,11 @@ Christmas Island,,162,CX,CXR,Oceania,009,Australia and New Zealand,053
 Cocos (Keeling) Islands,,166,CC,CCK,Oceania,009,Australia and New Zealand,053
 Colombia,,170,CO,COL,Americas,019,Latin America and the Caribbean,419
 Comoros,,174,KM,COM,Africa,002,Sub-Saharan Africa,202
-Congo,,178,CG,COG,Africa,002,Sub-Saharan Africa,202
+Congo,"Congo, Republic of the",178,CG,COG,Africa,002,Sub-Saharan Africa,202
 "Congo, Democratic Republic of the",,180,CD,COD,Africa,002,Sub-Saharan Africa,202
 Cook Islands,,184,CK,COK,Oceania,009,Polynesia,061
 Costa Rica,,188,CR,CRI,Americas,019,Latin America and the Caribbean,419
-Côte d'Ivoire,,384,CI,CIV,Africa,002,Sub-Saharan Africa,202
+Côte d'Ivoire,Cote d'Ivoire,384,CI,CIV,Africa,002,Sub-Saharan Africa,202
 Croatia,,191,HR,HRV,Europe,150,Southern Europe,039
 Cuba,,192,CU,CUB,Americas,019,Latin America and the Caribbean,419
 Curaçao,,531,CW,CUW,Americas,019,Latin America and the Caribbean,419
@@ -143,7 +143,7 @@ Mauritania,,478,MR,MRT,Africa,002,Sub-Saharan Africa,202
 Mauritius,,480,MU,MUS,Africa,002,Sub-Saharan Africa,202
 Mayotte,,175,YT,MYT,Africa,002,Sub-Saharan Africa,202
 Mexico,,484,MX,MEX,Americas,019,Latin America and the Caribbean,419
-Micronesia (Federated States of),,583,FM,FSM,Oceania,009,Micronesia,057
+Micronesia (Federated States of),Micronesia,583,FM,FSM,Oceania,009,Micronesia,057
 "Moldova, Republic of",Moldova,498,MD,MDA,Europe,150,Eastern Europe,151
 Monaco,,492,MC,MCO,Europe,150,Western Europe,155
 Mongolia,,496,MN,MNG,Asia,142,Eastern Asia,030
@@ -184,16 +184,16 @@ Réunion,,638,RE,REU,Africa,002,Sub-Saharan Africa,202
 Romania,,642,RO,ROU,Europe,150,Eastern Europe,151
 Russian Federation,Russia,643,RU,RUS,Europe,150,Eastern Europe,151
 Rwanda,,646,RW,RWA,Africa,002,Sub-Saharan Africa,202
-Saint Barthélemy,,652,BL,BLM,Americas,019,Latin America and the Caribbean,419
-"Saint Helena, Ascension and Tristan da Cunha",,654,SH,SHN,Africa,002,Sub-Saharan Africa,202
-Saint Kitts and Nevis,,659,KN,KNA,Americas,019,Latin America and the Caribbean,419
-Saint Lucia,,662,LC,LCA,Americas,019,Latin America and the Caribbean,419
-Saint Martin (French part),,663,MF,MAF,Americas,019,Latin America and the Caribbean,419
-Saint Pierre and Miquelon,,666,PM,SPM,Americas,019,Northern America,021
-Saint Vincent and the Grenadines,,670,VC,VCT,Americas,019,Latin America and the Caribbean,419
+Saint Barthélemy,St. Barthélemy,652,BL,BLM,Americas,019,Latin America and the Caribbean,419
+"Saint Helena, Ascension and Tristan da Cunha","St. Helena, Ascension and Tristan da Cunha",654,SH,SHN,Africa,002,Sub-Saharan Africa,202
+Saint Kitts and Nevis,St. Kitts and Nevis,659,KN,KNA,Americas,019,Latin America and the Caribbean,419
+Saint Lucia,St. Lucia,662,LC,LCA,Americas,019,Latin America and the Caribbean,419
+Saint Martin (French part),St. Martin (French part),663,MF,MAF,Americas,019,Latin America and the Caribbean,419
+Saint Pierre and Miquelon,St. Pierre and Miquelon,666,PM,SPM,Americas,019,Northern America,021
+Saint Vincent and the Grenadines,St. Vincent and the Grenadines,670,VC,VCT,Americas,019,Latin America and the Caribbean,419
 Samoa,,882,WS,WSM,Oceania,009,Polynesia,061
 San Marino,,674,SM,SMR,Europe,150,Southern Europe,039
-Sao Tome and Principe,,678,ST,STP,Africa,002,Sub-Saharan Africa,202
+Sao Tome and Principe,São Tomé and Principe,678,ST,STP,Africa,002,Sub-Saharan Africa,202
 Saudi Arabia,,682,SA,SAU,Asia,142,Western Asia,145
 Senegal,,686,SN,SEN,Africa,002,Sub-Saharan Africa,202
 Serbia,,688,RS,SRB,Europe,150,Southern Europe,039
@@ -226,7 +226,7 @@ Tokelau,,772,TK,TKL,Oceania,009,Polynesia,061
 Tonga,,776,TO,TON,Oceania,009,Polynesia,061
 Trinidad and Tobago,,780,TT,TTO,Americas,019,Latin America and the Caribbean,419
 Tunisia,,788,TN,TUN,Africa,002,Northern Africa,015
-Turkey,,792,TR,TUR,Asia,142,Western Asia,145
+Turkey,Türkiye,792,TR,TUR,Asia,142,Western Asia,145
 Turkmenistan,,795,TM,TKM,Asia,142,Central Asia,143
 Turks and Caicos Islands,,796,TC,TCA,Americas,019,Latin America and the Caribbean,419
 Tuvalu,,798,TV,TUV,Oceania,009,Polynesia,061
@@ -241,10 +241,11 @@ Uzbekistan,,860,UZ,UZB,Asia,142,Central Asia,143
 Vanuatu,,548,VU,VUT,Oceania,009,Melanesia,054
 Venezuela (Bolivarian Republic of),Venezuela,862,VE,VEN,Americas,019,Latin America and the Caribbean,419
 Viet Nam,Vietnam,704,VN,VNM,Asia,142,South-eastern Asia,035
-Virgin Islands (British),,92,VG,VGB,Americas,019,Latin America and the Caribbean,419
+Virgin Islands (British),British Virgin Islands,92,VG,VGB,Americas,019,Latin America and the Caribbean,419
 Virgin Islands (U.S.),,850,VI,VIR,Americas,019,Latin America and the Caribbean,419
 Wallis and Futuna,,876,WF,WLF,Oceania,009,Polynesia,061
 Western Sahara,,732,EH,ESH,Africa,002,Northern Africa,015
 Yemen,,887,YE,YEM,Asia,142,Western Asia,145
 Zambia,,894,ZM,ZMB,Africa,002,Sub-Saharan Africa,202
 Zimbabwe,,716,ZW,ZWE,Africa,002,Sub-Saharan Africa,202
+Kosovo,,383,XK,XKX,Europe,150,Southern Europe,039

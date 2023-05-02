@@ -34,7 +34,7 @@ Include the following google_play_source package version in your `packages.yml` 
 ```yaml
 packages:
   - package: fivetran/google_play_source
-    version: [">=0.2.0", "<0.3.0"]
+    version: [">=0.3.0", "<0.4.0"]
 ```
 ## Step 3: Define database and schema variables
 By default, this package runs using your destination and the `google_play` schema. If this is not where your google_play data is (for example, if your google_play schema is named `google_play_fivetran`), add the following configuration to your root `dbt_project.yml` file:
@@ -53,7 +53,13 @@ vars:
     google_play__using_subscriptions: true # by default this is assumed to be FALSE
 ```
 
-## (Optional) Step 5: Additional configurations
+## Step 5: Seed `country_codes` mapping table (once)
+
+In order to map longform territory names to their ISO country codes, we have adapted the CSV from [lukes/ISO-3166-Countries-with-Regional-Codes](https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes) to align Google and [Apple's](https://developer.apple.com/help/app-store-connect/reference/app-store-localizations/) country name formats for the [App Reporting](https://github.com/fivetran/dbt_app_reporting) combo package. 
+
+You will need to `dbt seed` the `google_play_country_codes` [file](https://github.com/fivetran/dbt_google_play_source/blob/main/seeds/google_play_country_codes.csv) just once.
+
+## (Optional) Step 6: Additional configurations
 <details><summary>Expand to view configurations</summary>
     
 ### Change the build schema
@@ -76,7 +82,7 @@ vars:
     
 </details>
 
-## (Optional) Step 6: Orchestrate your models with Fivetran Transformations for dbt Core™
+## (Optional) Step 7: Orchestrate your models with Fivetran Transformations for dbt Core™
 <details><summary>Expand to view details</summary>
 <br>
     
