@@ -1,8 +1,8 @@
 # dbt_google_play_source v0.3.0
 
 ## 🚨 Breaking Changes 🚨:
-[PR #10] includes the following changes:
-- Updated the [country code](https://github.com/fivetran/dbt_google_play_source/blob/main/seeds/google_play_country_codes.csv) mapping table to align with Apple's [format and inclusion list](https://developer.apple.com/help/app-store-connect/reference/app-store-localizations/) of country names. This was change was made in parallel with the [Apple App Store](https://github.com/fivetran/dbt_apple_store/tree/main) dbt package in order to maintain parity for proper aggregating in the combo [App Reporting](https://github.com/fivetran/dbt_app_reporting) package.
+[PR #11](https://github.com/fivetran/dbt_google_play_source/pull/11) includes the following changes:
+- Updated the [country code](https://github.com/fivetran/dbt_google_play_source/blob/main/seeds/google_play__country_codes.csv) mapping table to align with Apple's [format and inclusion list](https://developer.apple.com/help/app-store-connect/reference/app-store-localizations/) of country names. This was change was made in parallel with the [Apple App Store](https://github.com/fivetran/dbt_apple_store/tree/main) dbt package in order to maintain parity for proper aggregating in the combo [App Reporting](https://github.com/fivetran/dbt_app_reporting) package.
   - This is a 🚨**breaking change**🚨 as you will need to re-seed (`dbt seed --full-refresh`) the `google_play_country_codes` file again.
 
 # dbt_google_play_source v0.2.0

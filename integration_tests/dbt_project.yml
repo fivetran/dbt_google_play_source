@@ -4,7 +4,7 @@ profile: 'integration_tests'
 config-version: 2
 
 vars:
-  google_play_schema: google_play_source_integration_tests
+  google_play_schema: google_play_source_integration_tests_1
   google_play_source:
     stats_installs_app_version_identifier: "stats_installs_app_version"
     stats_crashes_app_version_identifier: "stats_crashes_app_version"
