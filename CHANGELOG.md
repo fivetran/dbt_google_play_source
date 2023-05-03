@@ -1,14 +1,13 @@
 # dbt_google_play_source v0.3.0
-[PR #11](https://github.com/fivetran/dbt_google_play_source/pull/11) includes the following changes:
-
 ## 🚨 Breaking Changes 🚨:
+[PR #11](https://github.com/fivetran/dbt_google_play_source/pull/11) includes the following changes:
 - Updated the [country code](https://github.com/fivetran/dbt_google_play_source/blob/main/seeds/google_play__country_codes.csv) mapping table to align with Apple's [format and inclusion list](https://developer.apple.com/help/app-store-connect/reference/app-store-localizations/) of country names. This was change was made in parallel with the [Apple App Store](https://github.com/fivetran/dbt_apple_store/tree/main) dbt package in order to maintain parity for proper aggregating in the combo [App Reporting](https://github.com/fivetran/dbt_app_reporting) package.
   - This is a 🚨**breaking change**🚨 as you will need to re-seed (`dbt seed --full-refresh`) the `google_play__country_codes` file again.
 
 ## Under the Hood:
-- Documents the `google_play__country_codes` seed file in yml.
-- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
-- Updated the pull request [templates](/.github).
+- Documented the `google_play__country_codes` seed file in yml ([PR #11](https://github.com/fivetran/dbt_google_play_source/pull/11)).
+- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job ([PR #10](https://github.com/fivetran/dbt_google_play_source/pull/10)).
+- Updated the pull request [templates](/.github) ([PR #10](https://github.com/fivetran/dbt_google_play_source/pull/10)).
 
 # dbt_google_play_source v0.2.0
 
