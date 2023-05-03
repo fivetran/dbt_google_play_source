@@ -28,13 +28,13 @@ To use this dbt package, you must have the following:
 - At least one Fivetran Google Play connector syncing data into your destination. 
 - A **BigQuery**, **Snowflake**, **Redshift**, **PostgreSQL**, **Databricks** destination.
 
-## Step 2: Install the package
+## Step 2: Install the package (skip if also using the `google_play` or `app_reporting` transformation packages)
 Include the following google_play_source package version in your `packages.yml` file.
 > TIP: Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 ```yaml
 packages:
   - package: fivetran/google_play_source
-    version: [">=0.2.0", "<0.3.0"]
+    version: [">=0.3.0", "<0.4.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 ## Step 3: Define database and schema variables
 By default, this package runs using your destination and the `google_play` schema. If this is not where your google_play data is (for example, if your google_play schema is named `google_play_fivetran`), add the following configuration to your root `dbt_project.yml` file:
@@ -53,7 +53,13 @@ vars:
     google_play__using_subscriptions: true # by default this is assumed to be FALSE
 ```
 
-## (Optional) Step 5: Additional configurations
+## Step 5: Seed `country_codes` mapping table (once)
+
+In order to map longform territory names to their ISO country codes, we have adapted the CSV from [lukes/ISO-3166-Countries-with-Regional-Codes](https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes) to align Google and [Apple's](https://developer.apple.com/help/app-store-connect/reference/app-store-localizations/) country name formats for the [App Reporting](https://github.com/fivetran/dbt_app_reporting) combo package. 
+
+You will need to `dbt seed` the `google_play__country_codes` [file](https://github.com/fivetran/dbt_google_play_source/blob/main/seeds/google_play__country_codes.csv) just once.
+
+## (Optional) Step 6: Additional configurations
 <details><summary>Expand to view configurations</summary>
     
 ### Change the build schema
@@ -76,7 +82,7 @@ vars:
     
 </details>
 
-## (Optional) Step 6: Orchestrate your models with Fivetran Transformations for dbt Core™
+## (Optional) Step 7: Orchestrate your models with Fivetran Transformations for dbt Core™
 <details><summary>Expand to view details</summary>
 <br>
     

@@ -1,5 +1,5 @@
 name: 'google_play_source'
-version: '0.2.0'
+version: '0.3.0'
 config-version: 2
 require-dbt-version: [">=1.3.0", "<2.0.0"]
 vars:
@@ -27,3 +27,11 @@ models:
     +materialized: table
     tmp:
       +materialized: view
+seeds:
+  google_play_source:
+    +schema: google_play_source
+    +column_types:
+      country_name: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar(255)' }}"
+      alternative_country_name: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar(255)' }}"
+      region: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar(255)' }}"
+      sub_region: "{{ 'string' if target.type in ['bigquery','spark','databricks'] else 'varchar(255)' }}"
