@@ -7,6 +7,8 @@
 
 ## Under the Hood:
 - Documents the `google_play__country_codes` seed file in yml.
+- Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job.
+- Updated the pull request [templates](/.github).
 
 # dbt_google_play_source v0.2.0
 

@@ -21,3 +21,4 @@ dbt run --target "$db" --full-refresh
 dbt test --target "$db"
 dbt run --vars '{google_play__using_earnings: true, google_play__using_subscriptions: true}' --target "$db" --full-refresh
 dbt test --target "$db"
+dbt run-operation fivetran_utils.drop_schemas_automation --target "$db"
