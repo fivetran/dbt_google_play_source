@@ -1,7 +1,7 @@
 
 with base as (
 
-    select * 
+    select *
     from {{ ref('stg_google_play__stats_installs_country_tmp') }}
 ),
 
@@ -14,14 +14,14 @@ fields as (
                 staging_columns=get_stats_installs_country_columns()
             )
         }}
-        
+
     from base
 ),
 
 final as (
-    
-    select 
-        date as date_day,
+
+    select
+        cast(date as date) as date_day,
         country,
         package_name,
         sum(active_device_installs) as active_devices_last_30_days,
@@ -37,5 +37,5 @@ final as (
     group by 1,2,3
 )
 
-select * 
+select *
 from final

@@ -1,7 +1,7 @@
 
 with base as (
 
-    select * 
+    select *
     from {{ ref('stg_google_play__stats_ratings_overview_tmp') }}
 ),
 
@@ -14,14 +14,14 @@ fields as (
                 staging_columns=get_stats_ratings_overview_columns()
             )
         }}
-        
+
     from base
 ),
 
 final as (
-    
-    select 
-        date as date_day,
+
+    select
+        cast(date as date) as date_day,
         package_name,
         cast( nullif(cast(daily_average_rating as {{ dbt.type_string() }}), 'NA') as {{ dbt.type_float() }} ) as average_rating,
         total_average_rating as rolling_total_average_rating,
@@ -29,5 +29,5 @@ final as (
     from fields
 )
 
-select * 
+select *
 from final

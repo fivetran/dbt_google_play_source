@@ -1,7 +1,7 @@
 
 with base as (
 
-    select * 
+    select *
     from {{ ref('stg_google_play__stats_crashes_overview_tmp') }}
 ),
 
@@ -14,14 +14,14 @@ fields as (
                 staging_columns=get_stats_crashes_overview_columns()
             )
         }}
-        
+
     from base
 ),
 
 final as (
-    
+
     select
-        date as date_day,
+        cast(date as date) as date_day,
         package_name,
         daily_anrs as anrs,
         daily_crashes as crashes,
@@ -29,5 +29,5 @@ final as (
     from fields
 )
 
-select * 
+select *
 from final

@@ -1,7 +1,7 @@
 
 with base as (
 
-    select * 
+    select *
     from {{ ref('stg_google_play__store_performance_source_tmp') }}
 ),
 
@@ -14,14 +14,14 @@ fields as (
                 staging_columns=get_stats_store_performance_traffic_source_columns()
             )
         }}
-        
+
     from base
 ),
 
 final as (
-    
-    select 
-        date as date_day,
+
+    select
+        cast(date as date) as date_day,
         package_name,
         traffic_source,
         search_term,
@@ -36,5 +36,5 @@ final as (
     from fields
 )
 
-select * 
+select *
 from final
