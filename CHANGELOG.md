@@ -1,3 +1,11 @@
+# dbt_google_play_source v0.3.1
+[PR #12](https://github.com/fivetran/dbt_google_play_source/pull/12) includes the following updates:
+## 🪲 Bug fixes:
+- Updated staging models to cast `date_day` columns to the `date` datatype. This prevents downstream datatype conflicts when joining on these columns.
+
+## Contributors
+- [@casparwylie](https://github.com/casparwylie) ([#12](https://github.com/fivetran/dbt_google_play_source/pull/12))
+
 # dbt_google_play_source v0.3.0
 ## 🚨 Breaking Changes 🚨:
 [PR #11](https://github.com/fivetran/dbt_google_play_source/pull/11) includes the following changes:
