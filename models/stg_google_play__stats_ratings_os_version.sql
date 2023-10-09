@@ -1,7 +1,7 @@
 
 with base as (
 
-    select * 
+    select *
     from {{ ref('stg_google_play__stats_ratings_os_version_tmp') }}
 ),
 
@@ -14,14 +14,14 @@ fields as (
                 staging_columns=get_stats_ratings_os_version_columns()
             )
         }}
-        
+
     from base
 ),
 
 final as (
-    
-    select 
-        date as date_day,
+
+    select
+        cast(date as date) as date_day,
         android_os_version,
         package_name,
         case when android_os_version is null then null else cast( nullif(cast(daily_average_rating as {{ dbt.type_string() }}), 'NA') as {{ dbt.type_float() }} ) end as average_rating,
@@ -30,5 +30,5 @@ final as (
     {{ dbt_utils.group_by(n=5) }}
 )
 
-select * 
+select *
 from final

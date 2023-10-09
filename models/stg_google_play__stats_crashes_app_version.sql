@@ -1,7 +1,7 @@
 
 with base as (
 
-    select * 
+    select *
     from {{ ref('stg_google_play__stats_crashes_app_version_tmp') }}
 ),
 
@@ -19,9 +19,9 @@ fields as (
 ),
 
 final as (
-    
-    select 
-        date as date_day,
+
+    select
+        cast(date as date) as date_day,
         app_version_code,
         package_name,
         sum(daily_anrs) as anrs,
@@ -30,5 +30,5 @@ final as (
     group by 1,2,3
 )
 
-select * 
+select *
 from final

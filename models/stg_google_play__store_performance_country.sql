@@ -1,7 +1,7 @@
 
 with base as (
 
-    select * 
+    select *
     from {{ ref('stg_google_play__store_performance_country_tmp') }}
 ),
 
@@ -14,14 +14,14 @@ fields as (
                 staging_columns=get_stats_store_performance_country_columns()
             )
         }}
-        
+
     from base
 ),
 
 final as (
-    
-    select 
-        date as date_day,
+
+    select
+        cast(date as date) as date_day,
         country_region,
         package_name,
         sum(store_listing_acquisitions) as store_listing_acquisitions,
@@ -31,5 +31,5 @@ final as (
     group by 1,2,3
 )
 
-select * 
+select *
 from final

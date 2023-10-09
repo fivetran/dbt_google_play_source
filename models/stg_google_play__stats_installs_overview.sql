@@ -1,7 +1,7 @@
 
 with base as (
 
-    select * 
+    select *
     from {{ ref('stg_google_play__stats_installs_overview_tmp') }}
 ),
 
@@ -14,14 +14,14 @@ fields as (
                 staging_columns=get_stats_installs_overview_columns()
             )
         }}
-        
+
     from base
 ),
 
 final as (
-    
-    select 
-        date as date_day,
+
+    select
+        cast(date as date) as date_day,
         package_name,
         active_device_installs as active_devices_last_30_days,
         daily_device_installs as device_installs,
@@ -36,5 +36,5 @@ final as (
     from fields
 )
 
-select * 
+select *
 from final
