@@ -1,3 +1,5 @@
+ADD source_relation WHERE NEEDED + CHECK JOINS AND WINDOW FUNCTIONS! (Delete this line when done.)
+
 {{ config(enabled=var('google_play__using_subscriptions', False)) }}
 
 with base as (
@@ -16,12 +18,19 @@ fields as (
             )
         }}
 
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='google_play_union_schemas', 
+            union_database_variable='google_play_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
 
     select
+        source_relation,
 
         cast(date as date) as date_day,
         country,

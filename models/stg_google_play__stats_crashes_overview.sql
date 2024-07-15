@@ -1,3 +1,5 @@
+ADD source_relation WHERE NEEDED + CHECK JOINS AND WINDOW FUNCTIONS! (Delete this line when done.)
+
 
 with base as (
 
@@ -15,12 +17,19 @@ fields as (
             )
         }}
 
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='google_play_union_schemas', 
+            union_database_variable='google_play_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
 
     select
+        source_relation,
         cast(date as date) as date_day,
         package_name,
         daily_anrs as anrs,

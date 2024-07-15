@@ -1,3 +1,5 @@
+ADD source_relation WHERE NEEDED + CHECK JOINS AND WINDOW FUNCTIONS! (Delete this line when done.)
+
 {{ config(enabled=var('google_play__using_earnings', False)) }}
 
 with base as (
@@ -16,12 +18,19 @@ fields as (
             )
         }}
         
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='google_play_union_schemas', 
+            union_database_variable='google_play_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
-    
-    select 
+
+    select
+        source_relation, 
         amount_buyer_currency_ as amount_buyer_currency,
         amount_merchant_currency_ as amount_merchant_currency,
         base_plan_id,
