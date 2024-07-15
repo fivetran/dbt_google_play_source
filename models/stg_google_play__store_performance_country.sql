@@ -1,6 +1,3 @@
-ADD source_relation WHERE NEEDED + CHECK JOINS AND WINDOW FUNCTIONS! (Delete this line when done.)
-
-
 with base as (
 
     select *
@@ -37,7 +34,7 @@ final as (
         avg(store_listing_conversion_rate) as store_listing_conversion_rate,
         sum(store_listing_visitors) as store_listing_visitors
     from fields
-    group by 1,2,3
+    {{ dbt_utils.group_by(4) }}
 )
 
 select *

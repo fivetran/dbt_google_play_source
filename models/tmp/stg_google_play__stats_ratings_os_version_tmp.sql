@@ -1,5 +1,3 @@
-ADD source_relation WHERE NEEDED + CHECK JOINS AND WINDOW FUNCTIONS! (Delete this line when done.)
-
 {{
     fivetran_utils.union_data(
         table_identifier='stats_ratings_os_version', 

@@ -1,5 +1,3 @@
-ADD source_relation WHERE NEEDED + CHECK JOINS AND WINDOW FUNCTIONS! (Delete this line when done.)
-
 {{ config(enabled=var('google_play__using_subscriptions', False)) }}
 
 with base as (
@@ -31,7 +29,6 @@ final as (
 
     select
         source_relation,
-
         cast(date as date) as date_day,
         country,
         product_id,
@@ -40,7 +37,7 @@ final as (
         sum(cancelled_subscriptions) as cancelled_subscriptions,
         sum(new_subscriptions) as new_subscriptions
     from fields
-    group by 1,2,3,4
+    {{ dbt_utils.group_by(5) }}
 )
 
 select *

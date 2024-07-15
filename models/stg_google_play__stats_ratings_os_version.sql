@@ -1,6 +1,3 @@
-ADD source_relation WHERE NEEDED + CHECK JOINS AND WINDOW FUNCTIONS! (Delete this line when done.)
-
-
 with base as (
 
     select *
@@ -36,7 +33,7 @@ final as (
         case when android_os_version is null then null else cast( nullif(cast(daily_average_rating as {{ dbt.type_string() }}), 'NA') as {{ dbt.type_float() }} ) end as average_rating,
         case when android_os_version is null then null else total_average_rating end as rolling_total_average_rating
     from fields
-    {{ dbt_utils.group_by(n=5) }}
+    {{ dbt_utils.group_by(6) }}
 )
 
 select *

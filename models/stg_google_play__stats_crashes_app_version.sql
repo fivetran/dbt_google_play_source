@@ -1,6 +1,3 @@
-ADD source_relation WHERE NEEDED + CHECK JOINS AND WINDOW FUNCTIONS! (Delete this line when done.)
-
-
 with base as (
 
     select *
@@ -36,7 +33,7 @@ final as (
         sum(daily_anrs) as anrs,
         sum(daily_crashes) as crashes
     from fields
-    group by 1,2,3
+    {{ dbt_utils.group_by(4) }}
 )
 
 select *

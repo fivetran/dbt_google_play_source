@@ -1,6 +1,3 @@
-ADD source_relation WHERE NEEDED + CHECK JOINS AND WINDOW FUNCTIONS! (Delete this line when done.)
-
-
 with base as (
 
     select *
@@ -43,7 +40,7 @@ final as (
         sum(uninstall_events) as uninstall_events,
         sum(update_events) as update_events
     from fields
-    group by 1,2,3
+    {{ dbt_utils.group_by(4) }}
 )
 
 select *
