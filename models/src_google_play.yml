@@ -14,7 +14,7 @@ sources:
     tables:
       - name: stats_installs_app_version
         description: Each line is a daily snapshot of the monthly installs report by app and app version.
-        identifier: "{{ var('stats_installs_app_version_identifier', 'stats_installs_app_version') }}"
+        identifier: "{{ var('google_play_stats_installs_app_version_identifier', 'stats_installs_app_version') }}"
         columns:
           - name: _file
             description: '{{ doc("_file") }}'
@@ -56,7 +56,7 @@ sources:
             description: '{{ doc("update_events") }}'
 
       - name: stats_crashes_app_version
-        identifier: "{{ var('stats_crashes_app_version_identifier', 'stats_crashes_app_version') }}"
+        identifier: "{{ var('google_play_stats_crashes_app_version_identifier', 'stats_crashes_app_version') }}"
         description: Each line is a daily snapshot of the monthly crashes report by app version and app.
         columns:
           - name: _file
@@ -79,7 +79,7 @@ sources:
             description: '{{ doc("package_name") }}'
 
       - name: stats_ratings_app_version
-        identifier: "{{ var('stats_ratings_app_version_identifier', 'stats_ratings_app_version') }}"
+        identifier: "{{ var('google_play_stats_ratings_app_version_identifier', 'stats_ratings_app_version') }}"
         description: Each line is a daily snapshot of the monthly ratings report by app and app version.
         columns:
           - name: _file
@@ -102,7 +102,7 @@ sources:
             description: '{{ doc("total_average_rating") }}'
 
       - name: stats_installs_device
-        identifier: "{{ var('stats_installs_device_identifier', 'stats_installs_device') }}"
+        identifier: "{{ var('google_play_stats_installs_device_identifier', 'stats_installs_device') }}"
         description: Each line is a daily snapshot of the monthly installs report by app and type of device model.
         columns:
           - name: _file
@@ -145,7 +145,7 @@ sources:
             description: '{{ doc("update_events") }}'
 
       - name: stats_ratings_device
-        identifier: "{{ var('stats_ratings_device_identifier', 'stats_ratings_device') }}"
+        identifier: "{{ var('google_play_stats_ratings_device_identifier', 'stats_ratings_device') }}"
         description: Each line is a daily snapshot of the monthly ratings report by app and type of device model.
         columns:
           - name: _file
@@ -168,7 +168,7 @@ sources:
             description: '{{ doc("total_average_rating") }}'
 
       - name: stats_installs_os_version
-        identifier: "{{ var('stats_installs_os_version_identifier', 'stats_installs_os_version') }}"
+        identifier: "{{ var('google_play_stats_installs_os_version_identifier', 'stats_installs_os_version') }}"
         description: Each line is a daily snapshot of the monthly installs report by app and user OS version.
         columns:
           - name: _file
@@ -211,7 +211,7 @@ sources:
             description: '{{ doc("update_events") }}'
 
       - name: stats_ratings_os_version
-        identifier: "{{ var('stats_ratings_os_version_identifier', 'stats_ratings_os_version') }}"
+        identifier: "{{ var('google_play_stats_ratings_os_version_identifier', 'stats_ratings_os_version') }}"
         description: Each line is a daily snapshot of the monthly ratings report by app and user OS version.
         columns:
           - name: _file
@@ -234,7 +234,7 @@ sources:
             description: '{{ doc("total_average_rating") }}'
 
       - name: stats_crashes_os_version
-        identifier: "{{ var('stats_crashes_os_version_identifier', 'stats_crashes_os_version') }}"
+        identifier: "{{ var('google_play_stats_crashes_os_version_identifier', 'stats_crashes_os_version') }}"
         description: Each line is a daily snapshot of the monthly crashes report by app and user OS version.
         columns:
           - name: _file
@@ -257,7 +257,7 @@ sources:
             description: '{{ doc("package_name") }}'
 
       - name: stats_installs_country
-        identifier: "{{ var('stats_installs_country_identifier', 'stats_installs_country') }}"
+        identifier: "{{ var('google_play_stats_installs_country_identifier', 'stats_installs_country') }}"
         description: Each line is a daily snapshot of the monthly installs report by app and user country.
         columns:
           - name: _file
@@ -300,7 +300,7 @@ sources:
             description: '{{ doc("update_events") }}'
 
       - name: stats_ratings_country
-        identifier: "{{ var('stats_ratings_country_identifier', 'stats_ratings_country') }}"
+        identifier: "{{ var('google_play_stats_ratings_country_identifier', 'stats_ratings_country') }}"
         description: Each line is a daily snapshot of the monthly ratings report by app and country.
         columns:
           - name: _file
@@ -323,7 +323,7 @@ sources:
             description: '{{ doc("total_average_rating") }}'
 
       - name: stats_store_performance_country
-        identifier: "{{ var('stats_store_performance_country_identifier', 'stats_store_performance_country') }}"
+        identifier: "{{ var('google_play_stats_store_performance_country_identifier', 'stats_store_performance_country') }}"
         description: Each line is a daily snapshot of the monthly store performance report by app and country.        
         columns:
           - name: _file
@@ -348,7 +348,7 @@ sources:
             description: '{{ doc("store_listing_visitors") }}'
 
       - name: stats_store_performance_traffic_source
-        identifier: "{{ var('stats_store_performance_traffic_source_identifier', 'stats_store_performance_traffic_source') }}"
+        identifier: "{{ var('google_play_stats_store_performance_traffic_source_identifier', 'stats_store_performance_traffic_source') }}"
         description: Each line is a daily snapshot of the monthly store performance report by app and type of traffic source.        
         columns:
           - name: _file
@@ -388,7 +388,7 @@ sources:
               Note: Can be Other this value does not reach certain minimum thresholds
 
       - name: stats_installs_overview
-        identifier: "{{ var('stats_installs_overview_identifier', 'stats_installs_overview') }}"
+        identifier: "{{ var('google_play_stats_installs_overview_identifier', 'stats_installs_overview') }}"
         description: Each line is a daily snapshot of the monthly overview installs report by app.
         columns:
           - name: _file
@@ -429,7 +429,7 @@ sources:
             description: '{{ doc("update_events") }}'
 
       - name: stats_crashes_overview
-        identifier: "{{ var('stats_crashes_overview_identifier', 'stats_crashes_overview') }}"
+        identifier: "{{ var('google_play_stats_crashes_overview_identifier', 'stats_crashes_overview') }}"
         description: Each line is a daily snapshot of the monthly overview crashes report by app.
         columns:
           - name: _file
@@ -450,7 +450,7 @@ sources:
             description: '{{ doc("package_name") }}'
 
       - name: stats_ratings_overview
-        identifier: "{{ var('stats_ratings_overview_identifier', 'stats_ratings_overview') }}"
+        identifier: "{{ var('google_play_stats_ratings_overview_identifier', 'stats_ratings_overview') }}"
         description: Each line is a daily snapshot of the monthly overview ratings report by app.
         columns:
           - name: _file
@@ -471,7 +471,7 @@ sources:
             description: '{{ doc("total_average_rating") }}'
 
       - name: earnings
-        identifier: "{{ var('earnings_identifier', 'earnings') }}"
+        identifier: "{{ var('google_play_earnings_identifier', 'earnings') }}"
         description: >
           Each line in the report represents a type of transaction, like when you charge a customer money or pay Google a fee, along with the original and converted amounts.
           Does not include chargebacks. No transactions made in the European Economic Area will not be Google fees. 
@@ -530,7 +530,7 @@ sources:
             description: Type of transaction - Charge, Google fee, Tax, Charge refund, Google fee refund, Charge rebill, Tax rebill, Google fee rebill, etc.
 
       - name: financial_stats_subscriptions_country
-        identifier: "{{ var('financial_stats_subscriptions_country_identifier', 'financial_stats_subscriptions_country') }}"
+        identifier: "{{ var('google_play_financial_stats_subscriptions_country_identifier', 'financial_stats_subscriptions_country') }}"
         description: Each line is a daily snapshot of the monthly subscriptions report by individual country, app, and subscription product.
         meta:
           is_enabled: "{{ var('google_play__using_subscriptions', false) }}"
