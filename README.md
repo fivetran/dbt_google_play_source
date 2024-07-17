@@ -34,7 +34,7 @@ Include the following google_play_source package version in your `packages.yml` 
 ```yaml
 packages:
   - package: fivetran/google_play_source
-    version: [">=0.3.0", "<0.4.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=0.4.0", "<0.5.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 ## Step 3: Define database and schema variables
 By default, this package runs using your destination and the `google_play` schema. If this is not where your google_play data is (for example, if your google_play schema is named `google_play_fivetran`), add the following configuration to your root `dbt_project.yml` file:
@@ -60,8 +60,20 @@ In order to map longform territory names to their ISO country codes, we have ada
 You will need to `dbt seed` the `google_play__country_codes` [file](https://github.com/fivetran/dbt_google_play_source/blob/main/seeds/google_play__country_codes.csv) just once.
 
 ## (Optional) Step 6: Additional configurations
-<details><summary>Expand to view configurations</summary>
-    
+<details open><summary>Expand/collapse configurations</summary>
+
+### Union multiple connectors
+If you have multiple google_play connectors in Fivetran and would like to use this package on all of them simultaneously, we have provided functionality to do so. The package will union all of the data together and pass the unioned table into the transformations. You will be able to see which source it came from in the `source_relation` column of each model. To use this functionality, you will need to set either the `google_play_union_schemas` OR `google_play_union_databases` variables (cannot do both) in your root `dbt_project.yml` file:
+
+```yml
+vars:
+    google_play_union_schemas: ['google_play_usa','google_play_canada'] # use this if the data is in different schemas/datasets of the same database/project
+    google_play_union_databases: ['google_play_usa','google_play_canada'] # use this if the data is in different databases/projects but uses the same schema name
+```
+Please be aware that the native `source.yml` connection set up in the package will not function when the union schema/database feature is utilized. Although the data will be correctly combined, you will not observe the sources linked to the package models in the Directed Acyclic Graph (DAG). This happens because the package includes only one defined `source.yml`.
+
+To connect your multiple schema/database sources to the package models, follow the steps outlined in the [Union Data Defined Sources Configuration](https://github.com/fivetran/dbt_fivetran_utils/tree/releases/v0.4.latest#union_data-source) section of the Fivetran Utils documentation for the union_data macro. This will ensure a proper configuration and correct visualization of connections in the DAG.
+
 ### Change the build schema
 By default, this package builds the google_play staging models within a schema titled (`<target_schema>` + `_google_play_source`) in your destination. If this is not where you would like your google_play staging data to be written to, add the following configuration to your root `dbt_project.yml` file:
 
@@ -77,7 +89,7 @@ If an individual source table has a different name than the package expects, add
     
 ```yml
 vars:
-    <default_source_table_name>_identifier: your_table_name 
+    google_play_<default_source_table_name>_identifier: your_table_name 
 ```
     
 </details>
