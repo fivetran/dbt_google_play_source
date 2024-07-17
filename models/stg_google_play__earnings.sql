@@ -28,11 +28,11 @@ fields as (
 final as (
 
     select
-        source_relation, 
+        cast(source_relation as {{ dbt.type_string() }}) as source_relation, 
         amount_buyer_currency_ as amount_buyer_currency,
         amount_merchant_currency_ as amount_merchant_currency,
         base_plan_id,
-        buyer_country,
+        cast(buyer_country as {{ dbt.type_string() }}) as buyer_country,
         buyer_currency,
         buyer_postal_code,
         buyer_state,
@@ -45,7 +45,7 @@ final as (
         product_title,
         product_type,
         refund_type,
-        sku_id,
+        cast(sku_id as {{ dbt.type_string() }}) as sku_id,
         tax_type,
 
         -- dates are stored like 'Apr 1, 2022' -> gotta convert these to YYYY-MM-DD

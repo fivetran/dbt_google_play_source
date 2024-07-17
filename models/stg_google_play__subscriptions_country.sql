@@ -28,14 +28,14 @@ fields as (
 final as (
 
     select
-        source_relation,
+        cast(source_relation as {{ dbt.type_string() }}) as source_relation,
         cast(date as date) as date_day,
-        country,
-        product_id,
-        package_name,
-        sum(active_subscriptions) as total_active_subscriptions,
-        sum(cancelled_subscriptions) as cancelled_subscriptions,
-        sum(new_subscriptions) as new_subscriptions
+        cast(country as {{ dbt.type_string() }}) as country,
+        cast(product_id as {{ dbt.type_string() }}) as product_id,
+        cast(package_name as {{ dbt.type_string() }}) as package_name,
+        sum(cast(active_subscriptions as {{ dbt.type_bigint() }})) as total_active_subscriptions,
+        sum(cast(cancelled_subscriptions as {{ dbt.type_bigint() }})) as cancelled_subscriptions,
+        sum(cast(new_subscriptions as {{ dbt.type_bigint() }})) as new_subscriptions
     from fields
     {{ dbt_utils.group_by(5) }}
 )

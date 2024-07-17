@@ -26,9 +26,9 @@ fields as (
 final as (
 
     select
-        source_relation,
+        cast(source_relation as {{ dbt.type_string() }}) as source_relation,
         cast(date as date) as date_day,
-        package_name,
+        cast(package_name as {{ dbt.type_string() }}) as package_name,
         cast( nullif(cast(daily_average_rating as {{ dbt.type_string() }}), 'NA') as {{ dbt.type_float() }} ) as average_rating,
         total_average_rating as rolling_total_average_rating,
         _fivetran_synced

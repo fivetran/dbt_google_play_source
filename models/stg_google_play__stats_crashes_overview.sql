@@ -26,11 +26,11 @@ fields as (
 final as (
 
     select
-        source_relation,
+        cast(source_relation as {{ dbt.type_string() }}) as source_relation,
         cast(date as date) as date_day,
-        package_name,
-        daily_anrs as anrs,
-        daily_crashes as crashes,
+        cast(package_name as {{ dbt.type_string() }}) as package_name,
+        cast(daily_anrs as {{ dbt.type_bigint() }}) as anrs,
+        cast(daily_crashes as {{ dbt.type_bigint() }}) as crashes,
         _fivetran_synced
     from fields
 )

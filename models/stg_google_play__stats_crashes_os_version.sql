@@ -26,12 +26,12 @@ fields as (
 final as (
 
     select
-        source_relation,
+        cast(source_relation as {{ dbt.type_string() }}) as source_relation,
         cast(date as date) as date_day,
-        android_os_version,
-        package_name,
-        sum(daily_anrs) as anrs,
-        sum(daily_crashes) as crashes
+        cast(android_os_version as {{ dbt.type_string() }}) as android_os_version,
+        cast(package_name as {{ dbt.type_string() }}) as package_name,
+        sum(cast(daily_anrs as {{ dbt.type_bigint() }})) as anrs,
+        sum(cast(daily_crashes as {{ dbt.type_bigint() }})) as crashes
     from fields
     {{ dbt_utils.group_by(4) }}
 )

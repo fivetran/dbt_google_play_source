@@ -26,18 +26,18 @@ fields as (
 final as (
 
     select
-        source_relation,
+        cast(source_relation as {{ dbt.type_string() }}) as source_relation,
         cast(date as date) as date_day,
-        package_name,
-        active_device_installs as active_devices_last_30_days,
-        daily_device_installs as device_installs,
-        daily_device_uninstalls as device_uninstalls,
-        daily_device_upgrades as device_upgrades,
-        daily_user_installs as user_installs,
-        daily_user_uninstalls as user_uninstalls,
-        install_events,
-        uninstall_events,
-        update_events,
+        cast(package_name as {{ dbt.type_string() }}) as package_name,
+        cast(active_device_installs as {{ dbt.type_bigint() }}) as active_devices_last_30_days,
+        cast(daily_device_installs as {{ dbt.type_bigint() }}) as device_installs,
+        cast(daily_device_uninstalls as {{ dbt.type_bigint() }}) as device_uninstalls,
+        cast(daily_device_upgrades as {{ dbt.type_bigint() }}) as device_upgrades,
+        cast(daily_user_installs as {{ dbt.type_bigint() }}) as user_installs,
+        cast(daily_user_uninstalls as {{ dbt.type_bigint() }}) as user_uninstalls,
+        cast(install_events as {{ dbt.type_bigint() }}) as install_events,
+        cast(uninstall_events as {{ dbt.type_bigint() }}) as uninstall_events,
+        cast(update_events as {{ dbt.type_bigint() }}) as update_events,
         _fivetran_synced
     from fields
 )

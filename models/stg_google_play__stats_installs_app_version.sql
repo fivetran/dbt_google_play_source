@@ -26,19 +26,19 @@ fields as (
 final as (
 
     select
-        source_relation,
+        cast(source_relation as {{ dbt.type_string() }}) as source_relation,
         cast(date as date) as date_day,
-        app_version_code,
-        package_name,
-        sum(active_device_installs) as active_devices_last_30_days,
-        sum(daily_device_installs) as device_installs,
-        sum(daily_device_uninstalls) as device_uninstalls,
-        sum(daily_device_upgrades) as device_upgrades,
-        sum(daily_user_installs) as user_installs,
-        sum(daily_user_uninstalls) as user_uninstalls,
-        sum(install_events) as install_events,
-        sum(uninstall_events) as uninstall_events,
-        sum(update_events) as update_events
+        cast(app_version_code as {{ dbt.type_int() }}) as app_version_code,
+        cast(package_name as {{ dbt.type_string() }}) as package_name,
+        sum(cast(active_device_installs as {{ dbt.type_bigint() }})) as active_devices_last_30_days,
+        sum(cast(daily_device_installs as {{ dbt.type_bigint() }})) as device_installs,
+        sum(cast(daily_device_uninstalls as {{ dbt.type_bigint() }})) as device_uninstalls,
+        sum(cast(daily_device_upgrades as {{ dbt.type_bigint() }})) as device_upgrades,
+        sum(cast(daily_user_installs as {{ dbt.type_bigint() }})) as user_installs,
+        sum(cast(daily_user_uninstalls as {{ dbt.type_bigint() }})) as user_uninstalls,
+        sum(cast(install_events as {{ dbt.type_bigint() }})) as install_events,
+        sum(cast(uninstall_events as {{ dbt.type_bigint() }})) as uninstall_events,
+        sum(cast(update_events as {{ dbt.type_bigint() }})) as update_events
     from fields
     {{ dbt_utils.group_by(4) }}
 )

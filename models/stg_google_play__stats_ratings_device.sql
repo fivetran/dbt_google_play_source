@@ -26,10 +26,10 @@ fields as (
 final as (
 
     select
-        source_relation,
+        cast(source_relation as {{ dbt.type_string() }}) as source_relation,
         cast(date as date) as date_day,
-        device,
-        package_name,
+        cast(device as {{ dbt.type_string() }}) as device,
+        cast(package_name as {{ dbt.type_string() }}) as package_name,
         case when device is null then null else cast( nullif(cast(daily_average_rating as {{ dbt.type_string() }}), 'NA') as {{ dbt.type_float() }} ) end as average_rating,
         case when device is null then null else total_average_rating end as rolling_total_average_rating
     from fields
