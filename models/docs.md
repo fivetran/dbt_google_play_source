@@ -139,6 +139,7 @@ Operation System of the android being used. May be NULL if users do not consent 
 {% docs sku_id %}
 Developer-specified unique ID assigned to the ordered product. Subscription order IDs include the renewal cycle number at the end.
 {% enddocs %}
+
 {% docs source_relation %}
 The source of the record if the unioning functionality is being used. If not this field will be empty.
 {% enddocs %}

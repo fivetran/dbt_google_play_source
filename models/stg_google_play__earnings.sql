@@ -29,8 +29,8 @@ final as (
 
     select
         cast(source_relation as {{ dbt.type_string() }}) as source_relation, 
-        amount_buyer_currency_ as amount_buyer_currency,
-        amount_merchant_currency_ as amount_merchant_currency,
+        cast(amount_buyer_currency_ as {{ dbt.type_numeric() }}) as amount_buyer_currency,
+        cast(amount_merchant_currency_ as {{ dbt.type_numeric() }}) as amount_merchant_currency,
         base_plan_id,
         cast(buyer_country as {{ dbt.type_string() }}) as buyer_country,
         buyer_currency,
