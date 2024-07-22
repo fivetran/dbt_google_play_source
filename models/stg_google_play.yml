@@ -337,16 +337,14 @@ models:
 
   - name: stg_google_play__store_performance_source
     description: Each line is a daily snapshot of the monthly store performance report by app and type of traffic source.
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - source_relation
-            - traffic_source_unique_key
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
       - name: traffic_source_unique_key
-        description: Surrogate key hashed on `date_day`, `package_name`, `traffic_source`, `search_term`, `utm_campaign`, and `utm_source`.
+        description: Surrogate key hashed on `source_relation`, `date_day`, `package_name`, `traffic_source`, `search_term`, `utm_campaign`, and `utm_source`.
+        tests:
+          - unique
+          - not null
       - name: date_day
         description: '{{ doc("date") }}'
       - name: package_name

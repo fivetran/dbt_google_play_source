@@ -37,7 +37,7 @@ final as (
         store_listing_conversion_rate,
         cast(store_listing_visitors as {{ dbt.type_bigint() }}) as store_listing_visitors,
         -- make a surrogate key as the PK involves quite a few columns
-        {{ dbt_utils.generate_surrogate_key(['date', 'package_name', 'traffic_source', 'search_term', 'utm_campaign', 'utm_source']) }} as traffic_source_unique_key,
+        {{ dbt_utils.generate_surrogate_key(['source_relation', 'date', 'package_name', 'traffic_source', 'search_term', 'utm_campaign', 'utm_source']) }} as traffic_source_unique_key,
         _fivetran_synced
     from fields
 )

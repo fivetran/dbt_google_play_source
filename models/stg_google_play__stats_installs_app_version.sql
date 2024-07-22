@@ -28,7 +28,7 @@ final as (
     select
         cast(source_relation as {{ dbt.type_string() }}) as source_relation,
         cast(date as date) as date_day,
-        cast(app_version_code as {{ dbt.type_string() }}) as app_version_code,
+        cast(app_version_code as {{ dbt.type_int() }}) as app_version_code,
         cast(package_name as {{ dbt.type_string() }}) as package_name,
         sum(cast(active_device_installs as {{ dbt.type_bigint() }})) as active_devices_last_30_days,
         sum(cast(daily_device_installs as {{ dbt.type_bigint() }})) as device_installs,
