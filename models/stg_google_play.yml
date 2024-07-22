@@ -344,7 +344,7 @@ models:
         description: Surrogate key hashed on `source_relation`, `date_day`, `package_name`, `traffic_source`, `search_term`, `utm_campaign`, and `utm_source`.
         tests:
           - unique
-          - not null
+          - not_null
       - name: date_day
         description: '{{ doc("date") }}'
       - name: package_name
