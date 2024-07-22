@@ -28,7 +28,7 @@ final as (
     select
         cast(source_relation as {{ dbt.type_string() }}) as source_relation,
         cast(date as date) as date_day,
-        cast(app_version_code as {{ dbt.type_int() }}) as app_version_code,
+        cast(app_version_code as {{ dbt.type_string() }}) as app_version_code,
         cast(package_name as {{ dbt.type_string() }}) as package_name,
         case when app_version_code is null then null else cast( nullif(cast(daily_average_rating as {{ dbt.type_string() }}), 'NA') as {{ dbt.type_float() }} ) end as average_rating,
         case when app_version_code is null then null else total_average_rating end as rolling_total_average_rating

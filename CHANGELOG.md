@@ -28,13 +28,16 @@ previous | current
 
 ## Feature update 🎉
 - Unioning capability! This adds the ability to union source data from multiple google_play connectors. Refer to the [README](https://github.com/fivetran/dbt_google_play_source/blob/main/README.md#union-multiple-connectors) for more details.
+- Added a `source_relation` column in each staging model for tracking the source of each record.
+- Updated tests to account for the new `source_relation` column.
+- Added casting to staging columns that are used in any downstream COALESCEs, UNIONs, or JOINs to prevent datatype conflicts.
+  - Metric fields, such as `crashes`, `*_installs`, `*_subscriptions`, etc., are now cast as the datatype determined by the `dbt.type_bigint()` macro for your warehouse. 
 
 ## Under the hood 🚘
-- Added casting to staging columns that are used in any downstream COALESCEs, UNIONs, or JOINs to prevent datatype conflicts.
 - Updated tmp models to union source data using the `fivetran_utils.union_data` macro. 
-- To distinguish which source each field comes from, added `source_relation` column in each staging model and applied the `fivetran_utils.source_relation` macro.
-- Updated tests to account for the new `source_relation` column.
-- Updated `src_google_play.yml` to use the current method to enable/disable sources.
+- Applied the `fivetran_utils.source_relation` macro in each staging model to determine the `source_relation`.
+- Updated `src_apple_store.yml` to use the current method to enable/disable sources.
+- Included auto-releaser GitHub Actions workflow to automate future releases. 
 
 # dbt_google_play_source v0.3.1
 [PR #12](https://github.com/fivetran/dbt_google_play_source/pull/12) includes the following updates:
