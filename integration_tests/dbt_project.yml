@@ -4,6 +4,8 @@ profile: 'integration_tests'
 config-version: 2
 
 vars:
+  # google_play__using_subscriptions: true # uncomment this line when regenerating docs!
+  # google_play__using_earnings: true # uncomment this line when regenerating docs!
   google_play_schema: google_play_source_integration_tests_1
   google_play_source:
     google_play_stats_installs_app_version_identifier: "stats_installs_app_version"
