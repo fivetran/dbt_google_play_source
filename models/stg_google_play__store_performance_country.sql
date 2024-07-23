@@ -1,4 +1,3 @@
-
 with base as (
 
     select *
@@ -15,20 +14,27 @@ fields as (
             )
         }}
 
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='google_play_union_schemas', 
+            union_database_variable='google_play_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
 
     select
+        cast(source_relation as {{ dbt.type_string() }}) as source_relation,
         cast(date as date) as date_day,
-        country_region,
-        package_name,
-        sum(store_listing_acquisitions) as store_listing_acquisitions,
+        cast(country_region as {{ dbt.type_string() }}) as country_region,
+        cast(package_name as {{ dbt.type_string() }}) as package_name,
+        sum(cast(store_listing_acquisitions as {{ dbt.type_bigint() }})) as store_listing_acquisitions,
         avg(store_listing_conversion_rate) as store_listing_conversion_rate,
-        sum(store_listing_visitors) as store_listing_visitors
+        sum(cast(store_listing_visitors as {{ dbt.type_bigint() }})) as store_listing_visitors
     from fields
-    group by 1,2,3
+    {{ dbt_utils.group_by(4) }}
 )
 
 select *

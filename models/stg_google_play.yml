@@ -9,10 +9,13 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - package_name
             - date_day
             - app_version_code
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: active_devices_last_30_days
         description: '{{ doc("active_device_installs") }}'
       - name: app_version_code
@@ -45,10 +48,13 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - package_name
             - date_day
             - app_version_code
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: app_version_code
         description: '{{ doc("app_version_code") }}'
       - name: anrs
@@ -67,10 +73,13 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - package_name
             - date_day
             - app_version_code
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: app_version_code
         description: '{{ doc("app_version_code") }}'
       - name: average_rating
@@ -89,10 +98,13 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - package_name
             - date_day
             - device
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: active_devices_last_30_days
         description: '{{ doc("active_device_installs") }}'
       - name: device_installs
@@ -125,10 +137,13 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - package_name
             - date_day
             - device
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: average_rating
         description: '{{ doc("daily_average_rating") }}'
       - name: date_day
@@ -147,10 +162,13 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - package_name
             - date_day
             - android_os_version
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: active_devices_last_30_days
         description: '{{ doc("active_device_installs") }}'
       - name: android_os_version
@@ -183,10 +201,13 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - package_name
             - date_day
             - android_os_version
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: average_rating
         description: '{{ doc("daily_average_rating") }}'
       - name: date_day
@@ -205,10 +226,13 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - package_name
             - date_day
             - android_os_version
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: android_os_version
         description: '{{ doc("android_os_version") }}'
       - name: anrs
@@ -227,10 +251,13 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - package_name
             - date_day
             - country
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: active_devices_last_30_days
         description: '{{ doc("active_device_installs") }}'
       - name: country
@@ -263,10 +290,13 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - package_name
             - date_day
             - country
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: country
         description: '{{ doc("country") }}'
       - name: average_rating
@@ -285,10 +315,13 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - package_name
             - date_day
             - country_region
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: country_region
         description: Two-letter abbreviation of the country or region where the user’s Google account is registered.
       - name: date_day
@@ -305,8 +338,10 @@ models:
   - name: stg_google_play__store_performance_source
     description: Each line is a daily snapshot of the monthly store performance report by app and type of traffic source.
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: traffic_source_unique_key
-        description: Surrogate key hashed on `date_day`, `package_name`, `traffic_source`, `search_term`, `utm_campaign`, and `utm_source`.
+        description: Surrogate key hashed on `source_relation`, `date_day`, `package_name`, `traffic_source`, `search_term`, `utm_campaign`, and `utm_source`.
         tests:
           - unique
           - not_null
@@ -343,9 +378,12 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - package_name
             - date_day
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: active_devices_last_30_days
         description: '{{ doc("active_device_installs") }}'
       - name: device_installs
@@ -374,9 +412,12 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - package_name
             - date_day
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: anrs
         description: '{{ doc("daily_anrs") }}'
       - name: crashes
@@ -391,9 +432,12 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - package_name
             - date_day
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: average_rating
         description: '{{ doc("daily_average_rating") }}'
       - name: date_day
@@ -410,11 +454,14 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - order_id
             - transaction_type
             - tax_type
             - amount_buyer_currency # this is because withholding taxes (https://support.google.com/googleplay/android-developer/answer/9384608?hl=en) can be split up into multiple records
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: amount_buyer_currency
         description: Total amount for this invoice line before currency conversion.
       - name: amount_merchant_currency
@@ -469,11 +516,14 @@ models:
     tests:
       - dbt_utils.unique_combination_of_columns:
           combination_of_columns:
+            - source_relation
             - package_name
             - date_day
             - country
             - product_id
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: total_active_subscriptions
         description: '{{ doc("total_active_subscriptions") }}'
       - name: cancelled_subscriptions

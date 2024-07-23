@@ -1,4 +1,3 @@
-
 with base as (
 
     select *
@@ -15,14 +14,21 @@ fields as (
             )
         }}
 
+    
+        {{ fivetran_utils.source_relation(
+            union_schema_variable='google_play_union_schemas', 
+            union_database_variable='google_play_union_databases') 
+        }}
+
     from base
 ),
 
 final as (
 
     select
+        cast(source_relation as {{ dbt.type_string() }}) as source_relation,
         cast(date as date) as date_day,
-        package_name,
+        cast(package_name as {{ dbt.type_string() }}) as package_name,
         cast( nullif(cast(daily_average_rating as {{ dbt.type_string() }}), 'NA') as {{ dbt.type_float() }} ) as average_rating,
         total_average_rating as rolling_total_average_rating,
         _fivetran_synced
