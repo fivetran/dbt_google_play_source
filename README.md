@@ -25,7 +25,7 @@
 ## How do I use the dbt package?
 ### Step 1: Prerequisites
 To use this dbt package, you must have the following:
-- At least one Fivetran Google Play connector syncing data into your destination.
+- At least one Fivetran Google Play connection syncing data into your destination.
 - A **BigQuery**, **Snowflake**, **Redshift**, **PostgreSQL**, **Databricks** destination.
 
 ### Step 2: Install the package (skip if also using the `google_play` or `app_reporting` transformation packages)
@@ -45,7 +45,7 @@ vars:
     google_play_schema: your_schema_name 
 ```
 ### Step 4: Disable models for non-existent sources
-Your Google Play connector might not sync every table that this package expects. If you have financial and/or subscriptions data, namely the `earnings` and `financial_stats_subscriptions_country` tables, add the following variable(s) to your `dbt_project.yml` file:
+Your Google Play connection might not sync every table that this package expects. If you have financial and/or subscriptions data, namely the `earnings` and `financial_stats_subscriptions_country` tables, add the following variable(s) to your `dbt_project.yml` file:
 
 ```yml
 vars:
@@ -62,8 +62,8 @@ You will need to `dbt seed` the `google_play__country_codes` [file](https://gith
 ### (Optional) Step 6: Additional configurations
 <details open><summary>Expand/collapse configurations</summary>
 
-#### Union multiple connectors
-If you have multiple google_play connectors in Fivetran and would like to use this package on all of them simultaneously, we have provided functionality to do so. The package will union all of the data together and pass the unioned table into the transformations. You will be able to see which source it came from in the `source_relation` column of each model. To use this functionality, you will need to set either the `google_play_union_schemas` OR `google_play_union_databases` variables (cannot do both) in your root `dbt_project.yml` file:
+#### Union multiple connections
+If you have multiple google_play connections in Fivetran and would like to use this package on all of them simultaneously, we have provided functionality to do so. The package will union all of the data together and pass the unioned table into the transformations. You will be able to see which source it came from in the `source_relation` column of each model. To use this functionality, you will need to set either the `google_play_union_schemas` OR `google_play_union_databases` variables (cannot do both) in your root `dbt_project.yml` file:
 
 ```yml
 vars:
