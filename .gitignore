@@ -4,3 +4,5 @@ logs/
 .DS_Store
 dbt_packages/
 integration_tests/.DS_Store
+env/
+package-lock.yml
