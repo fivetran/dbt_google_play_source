@@ -5,11 +5,12 @@ sources:
     schema: "{{ var('google_play_schema', 'google_play') }}"
     database: "{% if target.type != 'spark'%}{{ var('google_play_database', target.database) }}{% endif %}"
     loader: Fivetran
-    loaded_at_field: _fivetran_synced
 
-    freshness: 
-      warn_after: {count: 48, period: hour}
-      error_after: {count: 168, period: hour}
+    loaded_at_field: _fivetran_synced
+    config:
+      freshness:
+        warn_after: {count: 48, period: hour}
+        error_after: {count: 168, period: hour}
 
     tables:
       - name: stats_installs_app_version
