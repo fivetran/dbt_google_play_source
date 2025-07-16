@@ -31,6 +31,8 @@ dispatch:
     search_order: ['spark_utils', 'dbt_utils']
 
 seeds:
+  +docs:
+    show: False
   google_play_source_integration_tests:
     stats_installs_overview:
       +column_types:
@@ -41,3 +43,5 @@ seeds:
 
 flags:
   send_anonymous_usage_stats: False
+
+  use_colors: True
