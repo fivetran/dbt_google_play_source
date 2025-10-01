@@ -2,7 +2,7 @@
 
 > _This package has been archived and is no longer maintained. Use [`dbt_google_play`](https://github.com/fivetran/dbt_google_play) instead, which now contains all models previously found here._
 
-<p align="center">
+<p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_google_play_source/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
