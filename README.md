@@ -1,4 +1,4 @@
-# [DEPRECATED] Google_play Source dbt Package
+# [DEPRECATED] Google Play Source dbt Package
 
 > _This package has been archived and is no longer maintained. Use [`dbt_google_play`](https://github.com/fivetran/dbt_google_play) instead, which now contains all models previously found here._
 
@@ -6,9 +6,6 @@
     <a alt="License"
         href="https://github.com/fivetran/dbt_google_play_source/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
-    <a alt="Fivetran-Release"
-        href="https://fivetran.com/docs/getting-started/core-concepts#releasephases">
-        <img src="https://img.shields.io/badge/Fivetran Release Phase-_Beta-orange.svg" /></a>
     <a alt="dbt-core">
         <img src="https://img.shields.io/badge/dbt_Core™_version->=1.3.0_<2.0.0-orange.svg" /></a>
     <a alt="Maintained?">
@@ -17,7 +14,6 @@
         <img src="https://img.shields.io/badge/Contributions-closed-blueviolet" /></a>
 </p>
 
-# Google Play Source dbt Package ([Docs](https://fivetran.github.io/dbt_google_play_source/))
 ## What does this dbt package do?
 - Materializes [Google Play staging tables](https://fivetran.github.io/dbt_google_play_source/#!/overview/github_source/models/?g_v=1) which leverage data in the format described by [this ERD](https://fivetran.com/docs/applications/google-play/#schemainformation). These staging tables clean, test, and prepare your Google Play data from [Fivetran's connector](https://fivetran.com/docs/applications/google-play) for analysis by doing the following:
   - Name columns for consistency across all packages and easier analysis
